@@ -1,0 +1,71 @@
+{% extends 'webpage/index.html' %}
+{% load wagtailimages_tags %}
+
+
+
+
+{% block content %}
+
+    <!-- Title, Breadcrumb Start-->
+    <div class="breadcrumb-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                    <h2 class="title">Acerca de Nosotros</h2>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                    <div class="breadcrumbs pull-right">
+                        <ul>
+                            <li>You are here:</li>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Pages</a></li>
+                            <li>About Us</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+    <div class="divider"></div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h3 class="title">Nuestro Equipo</h3>
+                    <div class="row team">
+                        {% for team in self.team_list.all %}
+                            <!-- item 1 -->
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 item animate_afc d1">
+                                <div class="team-member">
+                                    <div class="team-member-holder">
+                                        <div class="team-member-image">
+                                            {% image team.team.photo width-345 %}
+                                            <div class="team-member-links">
+                                                <div class="team-member-links-list">
+                                                    <a target="_blank" class="facebook team-member-links-item" href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a target="_blank" class="twitter team-member-links-item" href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a target="_blank" class="linkedin team-member-links-item" href="#"><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="team-member-meta">
+                                            <h4 class="team-member-name">{{ team.team.name }}</h4>
+                                            <div class="team-member-role">{{ team.team.function }}</div>
+                                            <div class="team-member-description">
+                                                <p>{{ team.team.descripcion }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+
+{% endblock %}

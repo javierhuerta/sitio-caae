@@ -1,0 +1,164 @@
+{% load staticfiles %}
+{% load wagtailcore_tags webpage_tags %}
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+   <head>
+      <meta charset="utf-8">
+      <title>{% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %}</title>
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- Mobile Metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Google Fonts -->
+      <link href='{% static 'webpage/css/fonts_1.css' %}' rel='stylesheet' type='text/css'>
+      <link href='{% static 'webpage/css/fonts_2.css' %}' rel='stylesheet' type='text/css'>
+      <!-- Library CSS -->
+      <link rel="stylesheet" href="{% static 'webpage/css/bootstrap.css' %}">
+      <link rel="stylesheet" href="{% static 'webpage/css/bootstrap-theme.css' %}">
+      <link rel="stylesheet" href="{% static 'webpage/css/fonts/font-awesome/css/font-awesome.css' %}">
+      <link rel="stylesheet" href="{% static 'webpage/css/animations.css' %}" media="screen">
+      <link rel="stylesheet" href="{% static 'webpage/css/superfish.css' %}" media="screen">
+      <link rel="stylesheet" href="{% static 'webpage/css/team-member.css' %}" media="screen">
+      <link rel="stylesheet" href="{% static 'webpage/css/revolution-slider/css/settings.css' %}" media="screen">
+      <link rel="stylesheet" href="{% static 'webpage/css/prettyPhoto.css' %}" media="screen">
+      <!-- Theme CSS -->
+      <link rel="stylesheet" href="{% static 'webpage/css/style.css' %}">
+      <link rel="stylesheet" href="{% static 'webpage/css/global.css' %}">
+      <!-- Skin -->
+      <link rel="stylesheet" href="{% static 'webpage/css/colors/orange.css' %}" class="colors">
+      <!-- Responsive CSS -->
+      <link rel="stylesheet" href="{% static 'webpage/css/theme-responsive.css' %}">
+      
+      <!-- Favicons -->
+      <link rel="shortcut icon" href="img/ico/favicon.ico">
+      <link rel="apple-touch-icon" href="img/ico/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="img/ico/apple-touch-icon-72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="img/ico/apple-touch-icon-114.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="img/ico/apple-touch-icon-144.png">
+      <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+      <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="{% static 'webpage/js/respond.min.js' %}"></script>
+      <![endif]-->
+      <!--[if IE]>
+      <link rel="stylesheet" href="{% static 'webpage/css/ie.css' %}">
+      <![endif]-->
+   </head>
+   <body class="home">
+      <div class="page-mask">
+            <div class="page-loader">
+                <div class="spinner"></div>
+                Loading...
+            </div>
+      </div>
+      <div class="wrap">
+         <!-- Header Start -->
+         <header id="header">
+            <!-- Header Top Bar Start -->
+            <div class="top-bar">
+               <div class="slidedown collapse">
+                  <div class="container">
+                     <div class="phone-email pull-left">
+                        <a><i class="fa fa-phone"></i> Llamanos : +880 111-111-111</a>
+                        <a href="support@fifothemes.com"><i class="fa fa-envelope"></i> Email : caae@unach.cl</a>
+                     </div>
+                     <div class="pull-right">
+                        <ul class="social pull-left">
+                           <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                           <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                           <li class="dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                           <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                           <li class="rss"><a href="#"><i class="fa fa-rss"></i></a></li>
+                        </ul>
+                        <div id="search-form" class="pull-right">
+                           <form action="#" method="get">
+                              <input type="text" class="search-text-box">
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Header Top Bar End -->
+            <!-- Main Header Start -->
+            {% navbar_menu %}
+            <!-- Main Header End -->
+         </header>
+         <!-- Header End --> 
+         <!-- Content Start -->
+         <div id="main">
+             {% block content %}
+         <!-- Slider Start-->
+        {% include 'webpage/partials/slider.html' %}
+         <!-- Slider End-->
+         <!-- Slogan Start-->
+            <!-- Slogan Start-->
+          {% include 'webpage/partials/slogan.html' %}
+            <!-- Slogan End-->
+            {% comment %}
+                 <!-- Main Content start-->
+           {% include 'webpage/partials/main_content.html' %}
+            <!-- Main Content end-->
+
+            <!-- Product Content Start-->
+           {% include 'webpage/partials/product_content.html' %}
+            <!-- Product Content end-->
+
+            <!-- Recent works start-->
+           {% include 'webpage/partials/recent_work.html' %}
+            <!-- Recent work end-->
+            <!-- Features start -->
+           {% include 'webpage/partials/features.html' %}
+            <!-- Features End --> 
+            <!-- Latest Posts start --> 
+           {% include 'webpage/partials/latest_posts.html' %}
+            <!-- Latest Posts End -->
+            <!-- Our Clients Start-->
+            {% include 'webpage/partials/our_clients.html' %}
+            <!-- Our Clients End -->
+             {% endcomment %}
+             {% endblock %}
+         </div>
+         <!-- Content End -->
+         <!-- Footer Start -->
+         <footer id="footer">
+            <!-- Footer Top Start -->
+            {% include 'webpage/partials/footer_top.html' %}
+            <!-- Footer Top End --> 
+            <!-- Footer Bottom Start -->
+           {% include 'webpage/partials/footer_bottom.html' %}
+            <!-- Footer Bottom End -->
+         </footer>
+         <!-- Scroll To Top -->
+         <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
+      </div>
+      <!-- Wrap End -->
+      
+      <!-- The Scripts -->
+      <script src="{% static 'webpage/js/jquery.min.js' %}"></script>
+      <script src="{% static 'webpage/js/jquery-migrate-1.2.1.min.js' %}"></script>
+      <script src="{% static 'webpage/js/jquery-ui.js' %}"></script>
+      <script src="{% static 'webpage/js/bootstrap.js' %}"></script>
+      <script src="{% static 'webpage/js/jquery.parallax.js' %}"></script>
+      <script src="{% static 'webpage/js/jquery.wait.js' %}"></script>
+      <script src="{% static 'webpage/js/modernizr-2.6.2.min.js' %}"></script>
+      <script src="{% static 'webpage/js/modernizr.custom.js' %}"></script>
+      <script src="{% static 'webpage/js/revolution-slider/js/jquery.themepunch.tools.min.js' %}"></script>
+      <script src="{% static 'webpage/js/revolution-slider/js/jquery.themepunch.revolution.min.js' %}"></script>
+      <script src="{% static 'webpage/js/jquery.nivo.slider.pack.js' %}"></script>
+      <script src="{% static 'webpage/js/jquery.prettyPhoto.js' %}"></script>
+      <script src="{% static 'webpage/js/superfish.js' %}"></script>
+      <script src="{% static 'webpage/js/tweetMachine.js' %}"></script>
+      <script src="{% static 'webpage/js/tytabs.js' %}"></script>
+      <script src="{% static 'webpage/js/jquery.gmap.min.js' %}"></script>
+      <script src="{% static 'webpage/js/circularnav.js' %}"></script>
+      <script src="{% static 'webpage/js/jquery.sticky.js' %}"></script>
+      <script src="{% static 'webpage/js/jflickrfeed.js' %}"></script>
+      <script src="{% static 'webpage/js/imagesloaded.pkgd.min.js' %}"></script>
+      <script src="{% static 'webpage/js/waypoints.min.js' %}"></script>
+      <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+      <script src="{% static 'webpage/js/custom.js' %}"></script>
+   </body>
+</html>

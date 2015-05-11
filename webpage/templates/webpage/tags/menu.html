@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<div class="main-header">
+    <div class="container">
+        <!-- TopNav Start -->
+        <div class="topnav navbar-header">
+            <a class="navbar-toggle down-button" data-toggle="collapse" data-target=".slidedown">
+                <i class="fa fa-angle-down icon-current"></i>
+            </a>
+        </div>
+        <!-- TopNav End -->
+        <!-- Logo Start -->
+        <div class="logo pull-left">
+            <h1>
+                <a href="index.html">
+                    <img src="{% static 'webpage/img/logo_unach_blanco_dos.png' %}" alt="pixma" height="70">
+                </a>
+            </h1>
+        </div>
+        <!-- Logo End -->
+        <!-- Mobile Menu Start -->
+        <div class="mobile navbar-header">
+            <a class="navbar-toggle" data-toggle="collapse" href=".navbar-collapse">
+                <i class="fa fa-bars fa-2x"></i>
+            </a>
+        </div>
+        <!-- Mobile Menu End -->
+        <!-- Menu Start -->
+
+        <nav class="collapse navbar-collapse menu">
+            <ul class="nav navbar-nav sf-menu">
+                {% for menuitem in menus %}
+                    {% if menuitem.items|length > 1 %}
+                        <li>
+                            <a href="#" class="sf-with-ul">
+                                {{ menuitem }}
+                                 <span class="sf-sub-indicator">
+                                    <i class="fa fa-angle-down"></i>
+                                 </span>
+                            </a>
+                            <ul>
+                                {% for item in menuitem.items %}
+                                <li><a {% if request.path == item.url %}id="current"{% endif %} href="{{ item.url }}" class="sf-with-ul">{{ item }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% elif menuitem.items|length == 1 %}
+                        <li><a {% if request.path == menuitem.items.0.url %}id="current"{% endif %}  href="{{ menuitem.items.0.url }}">
+                            {{ menuitem }}
+                            </a>
+                        </li>
+                    {% else %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+        <!-- Menu End -->
+    </div>
+</div>
