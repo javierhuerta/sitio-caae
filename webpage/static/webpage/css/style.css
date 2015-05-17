@@ -137,7 +137,7 @@ a:hover,a:focus {
 
 header .top-bar {
     min-height: 30px;
-    background: lightslategray;
+    background: slategray;
 	border-bottom: 1px solid #414f5a;
     padding: 7px 0;
 	line-height:38px;

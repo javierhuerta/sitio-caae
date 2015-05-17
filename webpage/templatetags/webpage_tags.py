@@ -7,6 +7,6 @@ register = template.Library()
 @register.inclusion_tag('webpage/tags/menu.html', takes_context=True)
 def navbar_menu(context):
   return {
-    'menus': Menu.objects.all(),
+    'menus': Menu.objects.all().order_by('order'),
     'request': context['request'],
   }

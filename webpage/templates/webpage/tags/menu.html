@@ -11,8 +11,8 @@
         <!-- Logo Start -->
         <div class="logo pull-left">
             <h1>
-                <a href="index.html">
-                    <img src="{% static 'webpage/img/logo_unach_blanco_dos.png' %}" alt="pixma" height="70">
+                <a href="/">
+                    <img src="{% static 'webpage/img/caae_logo_2.png' %}" alt="caae"  height="70">
                 </a>
             </h1>
         </div>
@@ -29,6 +29,7 @@
         <nav class="collapse navbar-collapse menu">
             <ul class="nav navbar-nav sf-menu">
                 {% for menuitem in menus %}
+                    {% if not menuitem.second_level %}
                     {% if menuitem.items|length > 1 %}
                         <li>
                             <a href="#" class="sf-with-ul">
@@ -39,16 +40,65 @@
                             </a>
                             <ul>
                                 {% for item in menuitem.items %}
-                                <li><a {% if request.path == item.url %}id="current"{% endif %} href="{{ item.url }}" class="sf-with-ul">{{ item }}</a></li>
+                                    {% if item.menu %}
+                                        {% if item.menu.items|length > 0 %}
+                                            <li>
+                                                <a href="#" class="sf-with-ul">
+                                                    {{ item.menu }}
+                                                    <span class="sf-sub-indicator pull-right">
+                                                        <i class="fa fa-angle-right "></i>
+                                                    </span>
+                                                </a>
+                                                <ul>
+                                                    {% for x in item.menu.items %}
+                                                        <li><a {% if request.path == x.url %}id="current"{% endif %} href="{{ x.url }}" class="sf-with-ul">{{ x }}</a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                        {% endif %}
+                                    {% else %}
+                                        <li><a {% if request.path == item.url %}id="current"{% endif %} href="{{ item.url }}" class="sf-with-ul">{{ item }}</a></li>
+                                    {% endif %}
                                 {% endfor %}
                             </ul>
                         </li>
                     {% elif menuitem.items|length == 1 %}
-                        <li><a {% if request.path == menuitem.items.0.url %}id="current"{% endif %}  href="{{ menuitem.items.0.url }}">
-                            {{ menuitem }}
-                            </a>
-                        </li>
+                        {% with menuitem.items.0 as i  %}
+                            {% if i.menu %}
+                                <li>
+                                    <a href="#" class="sf-with-ul">
+                                        {{ menuitem }}
+                                 <span class="sf-sub-indicator">
+                                    <i class="fa fa-angle-down"></i>
+                                 </span>
+                                    </a>
+                                    <ul>
+                                        {% if i.menu.items|length > 0 %}
+                                            <li>
+                                                <a href="#" class="sf-with-ul">
+                                                    {{ i.menu }}
+                                                    <span class="sf-sub-indicator pull-right">
+                                                        <i class="fa fa-angle-right "></i>
+                                                    </span>
+                                                </a>
+                                                <ul>
+                                                    {% for x in i.menu.items %}
+                                                        <li><a {% if request.path == x.url %}id="current"{% endif %} href="{{ x.url }}" class="sf-with-ul">{{ x }}</a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                            </ul>
+                                            </li>
+                                        {% endif %}
+                            {% else %}
+                                <li><a {% if request.path == menuitem.items.0.url %}id="current"{% endif %}  href="{{ menuitem.items.0.url }}">
+                                    {{ menuitem }}
+                                </a>
+                                </li>
+                            {% endif %}
+                        {% endwith %}
                     {% else %}
+                    {% endif %}
                     {% endif %}
                 {% endfor %}
             </ul>

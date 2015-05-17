@@ -60,7 +60,6 @@ INSTALLED_APPS = (
     'wagtail.wagtailforms',
 
     'webpage',
-    'core',
 
 )
 

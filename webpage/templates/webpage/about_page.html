@@ -1,6 +1,7 @@
 {% extends 'webpage/index.html' %}
 {% load staticfiles %}
-
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
 
 {% block content %}
 
@@ -34,9 +35,9 @@
                         <h3 class="title">{{ self.sub_title }}</h3>
                         <div class="post-content">
                             <div class="img-content">
-                                <img src="{% static 'webpage/img/team/team.jpg' %}" alt="">
+                               {% image self.photo width-345 %}
                             </div>
-                            {{ self.body|safe }}
+                            {{ self.body|richtext }}
                         </div>
                     </article>
                 </div>
