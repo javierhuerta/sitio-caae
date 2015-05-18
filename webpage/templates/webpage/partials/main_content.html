@@ -9,7 +9,7 @@
                     <div class="content-box big ch-item bottom-pad-small">
                         <div class="ch-info-wrap">
                             <div class="ch-info">
-                                <div class="ch-info-front ch-img-1"><i class="fa fa-arrows-alt"></i></div>
+                                <div class="ch-info-front ch-img-1"><i class="{{ program.icon_class }}"></i></div>
                                 <div class="ch-info-back">
                                     <i class="fa fa-arrows-alt"></i>
                                 </div>
@@ -20,7 +20,9 @@
                             <p>
                                 {{ program.description|richtext}}
                             </p>
-                            <a href="#">Ver más <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+                            {% if program.related_page %}
+                            <a href="{{ programa.related_page.url }}">Ver más <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

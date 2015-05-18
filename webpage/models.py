@@ -46,6 +46,10 @@ class HomePage(Page):
         context['images'] = images
         return context
 
+    @property
+    def images_gallery(self):
+        return PictureGallery.objects.order_by('?')[:6]
+
 HomePage.content_panels = [
     FieldPanel('title', classname="Title"),
     FieldPanel('about_text', classname="About Text"),
@@ -90,6 +94,15 @@ DefaultPage.content_panels = [
 class Program(models.Model):
     name = models.CharField(max_length=255)
     description = RichTextField(null=True, blank=True)
+    icon_class = models.CharField(max_length=255, blank=True, null=True)
+    related_page = models.ForeignKey(
+        'wagtailcore.Page',
+        null=True,
+        on_delete=models.SET_NULL,
+        blank=True,
+        related_name='gallery_+',
+        help_text='Select a page related'
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
