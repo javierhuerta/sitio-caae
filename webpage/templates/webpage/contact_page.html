@@ -1,5 +1,6 @@
 {% extends 'webpage/index.html' %}
 {% load wagtailcore_tags %}
+{% load bootstrap3 %}
 
 {% block content %}
     <!-- Title, Breadcrumb Start-->
@@ -33,7 +34,7 @@
                     <div class="divider"></div>
                     <form action="{% pageurl self %}" method="POST">
                         {% csrf_token %}
-                        {{ form.as_p }}
+                        {% bootstrap_form form %}
                         <input type="submit">
                     </form>
                 </div>
