@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'webpage/index.html' %}
 
-</body>
-</html>
+{% block content %}
+
+     <div class="breadcrumb-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                    <h2 class="title">Gracias por comunicarte con nosotros!</h2>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                    <div class="breadcrumbs pull-right">
+                        <ul>
+                            <li>Tú estás aquí:</li>
+                            <li><a href="/">Inicio</a></li>
+                            <li>Contacto</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        Muy pronto nos pondremos en contacto contigo!
+    </div>
+
+{% endblock %}

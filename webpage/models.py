@@ -31,6 +31,7 @@ class HomePage(Page):
     )
     phone = models.CharField(max_length=255)
     email = models.EmailField()
+    address = models.CharField(max_length=255)
     facebook = models.URLField(null=True, blank=True)
     twiter = models.URLField(null=True, blank=True)
     instagram = models.URLField(null=True, blank=True)
