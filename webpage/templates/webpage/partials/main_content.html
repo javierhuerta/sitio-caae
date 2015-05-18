@@ -1,3 +1,6 @@
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
 <div class="main-content">
     <div class="container">
         <div class="row">
@@ -15,9 +18,9 @@
                         <div class="content-box-info">
                             <h3>{{ program.name }}</h3>
                             <p>
-                                {{ program.description }}
+                                {{ program.description|richtext}}
                             </p>
-                            <a href="#">Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+                            <a href="#">Ver más <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>
