@@ -1,12 +1,15 @@
 from django.db import models
-from modelcluster.fields import ParentalKey
 
 from wagtail.wagtailcore.models import Page, Orderable
-from wagtail.wagtailcore.fields import RichTextField
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsnippets.edit_handlers import SnippetChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
+
+from modelcluster.fields import ParentalKey
+from wagtail.wagtailadmin.edit_handlers import (FieldPanel, InlinePanel,
+    MultiFieldPanel)
+from wagtail.wagtailcore.fields import RichTextField
+from wagtail.wagtailforms.models import AbstractEmailForm, AbstractFormField
 
 class HomePage(Page):
     about_text = RichTextField()
@@ -194,7 +197,10 @@ TeamPage.content_panels = [
     InlinePanel(TeamPage,'team_list', label="Teams")
 ]
 
-class ContactPage(Page):
+class FormField(AbstractFormField):
+    page = ParentalKey('ContactPage', related_name='form_fields')
+
+class ContactPage(AbstractEmailForm):
     subtitle = models.CharField(max_length=255)
     description = RichTextField()
 
@@ -202,6 +208,13 @@ ContactPage.content_panels = [
     FieldPanel('title'),
     FieldPanel('subtitle'),
     FieldPanel('description'),
+    InlinePanel(ContactPage, 'form_fields', label="Form fields"),
+    FieldPanel('thank_you_text', classname="full"),
+    MultiFieldPanel([
+        FieldPanel('to_address', classname="full"),
+        FieldPanel('from_address', classname="full"),
+        FieldPanel('subject', classname="full"),
+    ], "Email")
     ]
 
 ####MENU NAVIGATION##################3
@@ -291,3 +304,4 @@ Menu.panels = [
     InlinePanel(Menu, 'menu_items', label="Menu Items", help_text='Set the menu items for the current menu.')
 ]
 #############################################################################################################
+
