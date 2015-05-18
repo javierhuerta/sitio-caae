@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load wagtailcore_tags webpage_tags %}
+{% get_site_root as site_root %}
 <!DOCTYPE html>
 <!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
@@ -50,7 +51,7 @@
       <div class="page-mask">
             <div class="page-loader">
                 <div class="spinner"></div>
-                Loading...
+                Cargando...
             </div>
       </div>
       <div class="wrap">
@@ -61,14 +62,14 @@
                <div class="slidedown collapse">
                   <div class="container">
                      <div class="phone-email pull-left">
-                        <a><i class="fa fa-phone"></i> Llamanos : {{ self.phone }}</a>
-                        <a href="{{ self.email }}"><i class="fa fa-envelope"></i> Email : {{ self.email }}</a>
+                        <a><i class="fa fa-phone"></i> Llamanos : {{ site_root.phone }}</a>
+                        <a href="{{ site_root.email }}"><i class="fa fa-envelope"></i> Email : {{ site_root.email }}</a>
                      </div>
                      <div class="pull-right">
                         <ul class="social pull-left">
-                           <li class="facebook"><a href="{{ self.facebook }}"><i class="fa fa-facebook"></i></a></li>
-                           <li class="twitter"><a href="{{ self.twiter }}"><i class="fa fa-twitter"></i></a></li>
-                           <li class="dribbble"><a href="{{ self.instagram }}"><i class="fa fa-instagram"></i></a></li>
+                           <li class="facebook"><a href="{{ site_root.facebook }}"><i class="fa fa-facebook"></i></a></li>
+                           <li class="twitter"><a href="{{ site_root.twiter }}"><i class="fa fa-twitter"></i></a></li>
+                           <li class="dribbble"><a href="{{ site_root.instagram }}"><i class="fa fa-instagram"></i></a></li>
                            <li class="rss"><a href="#"><i class="fa fa-rss"></i></a></li>
                         </ul>
                         {% block search_box %}

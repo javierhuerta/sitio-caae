@@ -1,19 +1,14 @@
+{% load webpage_tags %}
  <div class="footer-top">
                <div class="container">
                   <div class="row">
                      <section class="col-lg-3 col-md-3 col-xs-12 col-sm-3 footer-one">
                         <h3>Acerca</h3>
-                         {% if self.about_text %}
                          <p>
-                           {{ self.about_text|safe }}
-                            <a href="{{ self.about_page.url }}"> Ver más...</a>
+                            {{ site_root.about_text|safe }}
+                            <a href="{{ site_root.about_page.url }}"> Ver más...</a>
                         </p>
-                         {% else %}
-                             <p>
-                            {{ self.parent.about_text|safe }}
-                            <a href="{{ self.parent.about_page.url }}"> Ver más...</a>
-                            </p>
-                         {% endif %}
+
                      </section>
                      <section class="col-lg-3 col-md-3 col-xs-12 col-sm-3 footer-two">
 
@@ -24,16 +19,16 @@
                            <li>
                               <i class="fa fa-map-marker"></i>
                               <p> 
-                                 <strong class="contact-pad">Dirección:</strong> {{ self.address|safe }}
+                                 <strong class="contact-pad">Dirección:</strong> {{ site_root.address|safe }}
                               </p>
                            </li>
                            <li>
                               <i class="fa fa-phone"></i>
-                              <p><strong>Teléfono:</strong> {{ self.phone|safe }}</p>
+                              <p><strong>Teléfono:</strong> {{ site_root.phone|safe }}</p>
                            </li>
                            <li>
                               <i class="fa fa-envelope"></i>
-                              <p><strong>Email:</strong><a href="mailto:{{ self.email }}">{{ self.email }}</a></p>
+                              <p><strong>Email:</strong><a href="mailto:{{ site_root.email }}">{{ site_root.email }}</a></p>
                            </li>
                         </ul>
                      </section>
