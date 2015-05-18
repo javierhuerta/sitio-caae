@@ -52,6 +52,7 @@ HomePage.content_panels = [
     FieldPanel('about_page', classname="About Page"),
     FieldPanel('gallery_page', classname="Gallery Page"),
     FieldPanel('phone', classname="Phone"),
+    FieldPanel('address', classname="Address"),
     FieldPanel('email', classname="Email"),
     FieldPanel('facebook', classname="Facebook"),
     FieldPanel('twiter', classname="Twiter"),
