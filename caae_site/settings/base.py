@@ -81,6 +81,8 @@ ROOT_URLCONF = 'caae_site.urls'
 WSGI_APPLICATION = 'caae_site.wsgi.application'
 
 
+WAGTAILSEARCH_RESULTS_TEMPLATE = 'webpage/search_results.html'
+
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 

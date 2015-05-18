@@ -3,10 +3,17 @@
                   <div class="row">
                      <section class="col-lg-3 col-md-3 col-xs-12 col-sm-3 footer-one">
                         <h3>Acerca</h3>
-                        <p> 
+                         {% if self.about %}
+                         <p>
                            {{ self.about_text|safe }}
                             <a href="{{ self.about_page.url }}"> Ver más...</a>
                         </p>
+                         {% else %}
+                             <p>
+                            {{ self.parent.about_text|safe }}
+                            <a href="{{ self.parent.about_page.url }}"> Ver más...</a>
+                            </p>
+                         {% endif %}
                      </section>
                      <section class="col-lg-3 col-md-3 col-xs-12 col-sm-3 footer-two">
 
