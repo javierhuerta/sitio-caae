@@ -94,6 +94,7 @@ DefaultPage.content_panels = [
 class Program(models.Model):
     name = models.CharField(max_length=255)
     description = RichTextField(null=True, blank=True)
+    short_description = RichTextField(null=True, blank=True)
     icon_class = models.CharField(max_length=255, blank=True, null=True)
     related_page = models.ForeignKey(
         'wagtailcore.Page',

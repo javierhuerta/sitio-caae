@@ -1,6 +1,5 @@
 {% load wagtailimages_tags %}
 {% load wagtailcore_tags %}
-
 <div class="main-content">
     <div class="container">
         <div class="row">
@@ -18,7 +17,7 @@
                         <div class="content-box-info">
                             <h3>{{ program.name }}</h3>
                             <p>
-                                {{ program.description|richtext|truncatewords:30 }}
+                                {{ program.short_description|richtext }}
                             </p>
                             {% if program.related_page %}
                             <a href="{{ programa.related_page.url }}">Ver más <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
