@@ -209,7 +209,6 @@ ContactPage.content_panels = [
     FieldPanel('subtitle'),
     FieldPanel('description'),
     InlinePanel(ContactPage, 'form_fields', label="Form fields"),
-    FieldPanel('thank_you_text', classname="full"),
     MultiFieldPanel([
         FieldPanel('to_address', classname="full"),
         FieldPanel('from_address', classname="full"),
