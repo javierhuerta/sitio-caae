@@ -74,11 +74,13 @@ class AboutPage(Page):
         related_name='+'
     )
     body = RichTextField()
+    body_personalize = models.TextField(null=True, blank=True)
 
 AboutPage.content_panels = [
     FieldPanel('title', classname="Title"),
     FieldPanel('sub_title', classname="Sub Title"),
     FieldPanel('body', classname="Content"),
+    FieldPanel('body_personalize', classname="Content Personalize"),
     ImageChooserPanel('photo'),
 ]
 

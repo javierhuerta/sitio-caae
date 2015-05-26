@@ -37,7 +37,11 @@
                             <div class="img-content">
                                {% image self.photo width-345 %}
                             </div>
+                            {% if self.body_personalize %}
+                            {{ self.body_personalize|safe }}
+                            {% else %}
                             {{ self.body|richtext }}
+                            {% endif %}
                         </div>
                     </article>
                 </div>
