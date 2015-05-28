@@ -1,5 +1,3 @@
-from .base import *
-
 # Send notification emails as a background task using Celery,
 # to prevent this from blocking web server threads
 # (requires the django-celery package):
@@ -53,9 +51,3 @@ TEMPLATE_DIRS = (
     "/var/djangoprojects/sitio_caae_env/sitio_caae_env/templates",
     )
 
-
-
-try:
-    from .local import *
-except ImportError:
-    pass

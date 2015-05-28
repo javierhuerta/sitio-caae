@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 from os.path import abspath, dirname, join
+from django.conf import global_settings
 
 # Absolute filesystem path to the Django project directory:
 PROJECT_ROOT = dirname(dirname(dirname(abspath(__file__))))
@@ -17,17 +18,12 @@ PROJECT_ROOT = dirname(dirname(dirname(abspath(__file__))))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '5oj9=hq)#03j*s8_oh8)u0ny)55pba05nge_q*k7dxpg0&3gd#'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-TEMPLATE_DEBUG = True
-
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = '5oj9=hq)#03j*s8_oh8)u0ny)55pba05nge_q*k7dxpg0&3gd#'
 
 
 # Application definition
@@ -80,21 +76,6 @@ WSGI_APPLICATION = 'caae_site.wsgi.application'
 
 WAGTAILSEARCH_RESULTS_TEMPLATE = 'webpage/search_results.html'
 
-
-# PostgreSQL (Recommended, but requires the psycopg2 library and Postgresql development headers)
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'caae_site',
-#         'USER': 'postgres',
-#         'PASSWORD': '',
-#         'HOST': '',  # Set to empty string for localhost.
-#         'PORT': '',  # Set to empty string for default.
-#         'CONN_MAX_AGE': 600,  # number of seconds database connections should persist for
-#     }
-# }
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -117,9 +98,6 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-MEDIA_ROOT = join(PROJECT_ROOT, 'media')
-MEDIA_URL = '/media/'
-
 
 # Django compressor settings
 # http://django-compressor.readthedocs.org/en/latest/settings/
@@ -131,7 +109,6 @@ COMPRESS_PRECOMPILERS = (
 
 # Template configuration
 
-from django.conf import global_settings
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
@@ -159,3 +136,9 @@ WAGTAIL_SITE_NAME = "caae_site"
 
 # Whether to use face/feature detection to improve image cropping - requires OpenCV
 WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False
+
+
+try:
+    from caae_site.settings.local_settings import  *
+except ImportError:
+    pass
