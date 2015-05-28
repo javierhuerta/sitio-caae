@@ -25,9 +25,6 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
@@ -83,16 +80,6 @@ WSGI_APPLICATION = 'caae_site.wsgi.application'
 
 WAGTAILSEARCH_RESULTS_TEMPLATE = 'webpage/search_results.html'
 
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
-# SQLite (simplest install)
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': join(PROJECT_ROOT, 'db.sqlite3'),
-    }
-}
 
 # PostgreSQL (Recommended, but requires the psycopg2 library and Postgresql development headers)
 # DATABASES = {

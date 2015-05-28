@@ -1,18 +1,5 @@
 from .base import *
 
-
-# Disable debug mode
-
-DEBUG = False
-TEMPLATE_DEBUG = False
-
-
-# Compress static files offline
-# http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
-
-COMPRESS_OFFLINE = True
-
-
 # Send notification emails as a background task using Celery,
 # to prevent this from blocking web server threads
 # (requires the django-celery package):
@@ -40,6 +27,32 @@ COMPRESS_OFFLINE = True
 #         }
 #     }
 # }
+
+# Settings for production server
+import os
+DEBUG = False
+TEMPLATE_DEBUG = DEBUG
+ROOT_PATH = os.path.join(os.path.dirname(__file__), '..')
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'caae',                      # Or path to database file if using sqlite3.
+        'USER': 'caae',                      # Not used with sqlite3.
+        'PASSWORD': '8S5cNU8jB6HTEQzj',                  # Not used with sqlite3.
+        'HOST': 'mysql.unach.cl',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    }
+}
+
+ALLOWED_HOSTS = ['caae.unach.cl']
+
+MEDIA_ROOT = '/var/djangoprojects/sitio_caae_env/sitio_caae/media/'
+MEDIA_URL = '/media/'
+STATIC_ROOT = '/var/djangoprojects/sitio_caae_env/sitio_caae/static/'
+TEMPLATE_DIRS = (
+    "/var/djangoprojects/sitio_caae_env/sitio_caae_env/templates",
+    )
+
 
 
 try:
