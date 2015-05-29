@@ -98,10 +98,10 @@
                  <!-- Main Content start-->
            {% include 'webpage/partials/main_content.html' %}
             <!-- Main Content end-->
-            <!-- Features start -->
+
+                 <!-- Features start -->
            {% include 'webpage/partials/features.html' %}
             <!-- Features End -->
-
 
             {% comment %}
 
@@ -158,9 +158,8 @@
       <script src="{% static 'webpage/js/jflickrfeed.js' %}"></script>
       <script src="{% static 'webpage/js/imagesloaded.pkgd.min.js' %}"></script>
       <script src="{% static 'webpage/js/waypoints.min.js' %}"></script>
-      <script src="{% static 'webpage/js/jquery.isotope.js' %}"></script>
-      <script src="{% static 'webpage/js/portfolio.js' %}"></script>
-      <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+      {% block extra_js %}
+      {% endblock %}
       <script src="{% static 'webpage/js/custom.js' %}"></script>
    </body>
 </html>
