@@ -12,7 +12,7 @@ from os.path import abspath, dirname, join
 from django.conf import global_settings
 
 # Absolute filesystem path to the Django project directory:
-PROJECT_ROOT = dirname(dirname(dirname(abspath(__file__))))
+ROOT_PATH = os.path.join(os.path.dirname(__file__), '..')
 
 
 # Quick-start development settings - unsuitable for production
