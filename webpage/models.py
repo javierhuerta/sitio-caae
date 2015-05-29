@@ -110,6 +110,10 @@ class PersonList(Orderable, models.Model):
         return u"%s -> %s" % (self.page.title,self.person)
 
 class TallerPage(Page):
+    name = models.CharField(max_length=255,
+        null=True,
+        blank=True
+    )
     photo = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -131,6 +135,7 @@ class TallerPage(Page):
 
 TallerPage.content_panels = [
     FieldPanel('title', classname="Title"),
+    FieldPanel('name', classname="Name"),
     FieldPanel('team', classname="Instructor"),
     FieldPanel('time', classname="Time"),
     FieldPanel('date', classname="Date"),
@@ -140,7 +145,6 @@ TallerPage.content_panels = [
     ImageChooserPanel('photo'),
     InlinePanel(TallerPage,'person_list', label="Persons")
 ]
-
 
 class DefaultPage(Page):
     body = RichTextField()

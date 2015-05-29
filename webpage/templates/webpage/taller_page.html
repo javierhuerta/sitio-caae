@@ -9,7 +9,7 @@
                <div class="container">
                   <div class="row">
                      <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
-                        <h2 class="title">{{ self.title }}</h2>
+                        <h2 class="title"> {% if self.name %} {{ self.name }} {% else %} {{ self.title }} {% endif %}</h2>
                      </div>
                      <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
                         <div class="breadcrumbs pull-right">
@@ -48,6 +48,14 @@
                                         </tr>
                                    </thead>
                                    <tbody>
+                                        <tr>
+                                            <td>
+                                               <b> Nombre </b>
+                                            </td>
+                                            <td>
+                                                {{ self.name }}
+                                            </td>
+                                        </tr>
                                         <tr>
                                             <td>
                                                <b> Dictado por </b>
