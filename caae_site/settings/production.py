@@ -31,7 +31,7 @@ import os
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 ROOT_PATH = os.path.join(os.path.dirname(__file__), '..')
-DATABASES = {ma
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'caae',                      # Or path to database file if using sqlite3.
