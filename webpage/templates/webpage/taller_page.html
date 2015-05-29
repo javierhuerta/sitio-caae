@@ -1,7 +1,9 @@
 {% extends 'webpage/index.html' %}
 {% load staticfiles %}
+{% load webpage_tags %}
 {% load wagtailimages_tags %}
 {% load wagtailcore_tags %}
+{% get_site_root as site_root %}
 
 {% block content %}
 <!-- Title, Breadcrumb Start-->
@@ -125,5 +127,26 @@
                   </div>
                </div>
             </div>
+            <div class="divider"></div>
+             <!-- Slogan Start-->
+            <div class="slogan bottom-pad-small">
+               <div class="container">
+                  <div class="row">
+                     <div class="slogan-content">
+                        <div class="col-lg-9 col-md-9">
+                           <h3>Llamanos <b>{{ site_root.phone }}</b> o envianos un Email a <a href="mailto:{{ site_root.email }}">{{ site_root.email }}</a></h3>
+                           <p>Queremos ayudarte!.</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                           <div class="get-started">
+                              <button class="btn btn-special btn-color pull-right">Inscribete</button>
+                           </div>
+                        </div>
+                        <div class="clearfix"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Slogan End-->
             <div class="divider"></div>
 {% endblock %}
