@@ -84,6 +84,64 @@ AboutPage.content_panels = [
     ImageChooserPanel('photo'),
 ]
 
+@register_snippet
+class Person(models.Model):
+    name = models.CharField(max_length=255)
+    mail = models.EmailField(null=True, blank=True)
+    phone = models.CharField(max_length=255, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        return u"%s" % self.name
+
+class PersonList(Orderable, models.Model):
+    page = ParentalKey('webpage.TallerPage', related_name='person_list')
+    person = models.ForeignKey('webpage.Person', related_name='+')
+
+    class Meta:
+        verbose_name = "Person"
+        verbose_name_plural = "Persons"
+
+    panels = [
+        SnippetChooserPanel('person', Person),
+        ]
+
+    def __unicode__(self):
+        return u"%s -> %s" % (self.page.title,self.person)
+
+class TallerPage(Page):
+    photo = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    team = models.ForeignKey('Team',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    time = models.CharField(max_length=255)
+    date = models.DateField()
+    room = models.CharField(max_length=255)
+    number = models.PositiveIntegerField()
+    body = RichTextField()
+
+TallerPage.content_panels = [
+    FieldPanel('title', classname="Title"),
+    FieldPanel('team', classname="Instructor"),
+    FieldPanel('time', classname="Time"),
+    FieldPanel('date', classname="Date"),
+    FieldPanel('room', classname="Room"),
+    FieldPanel('number', classname="Number"),
+    FieldPanel('body', classname="Content"),
+    ImageChooserPanel('photo'),
+    InlinePanel(TallerPage,'person_list', label="Persons")
+]
+
+
 class DefaultPage(Page):
     body = RichTextField()
 

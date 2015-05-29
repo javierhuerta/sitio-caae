@@ -1,0 +1,120 @@
+{% extends 'webpage/index.html' %}
+{% load staticfiles %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<!-- Title, Breadcrumb Start-->
+            <div class="breadcrumb-wrapper">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                        <h2 class="title">{{ self.title }}</h2>
+                     </div>
+                     <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                        <div class="breadcrumbs pull-right">
+                           <ul>
+                              <li>Tú estás aquí:</li>
+                              <li><a href="/">Inicio</a></li>
+                              <li>{{ self.title }}</li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Title, Breadcrumb End-->
+            <!-- Main Content start-->
+            <div class="content">
+               <div class="container">
+                  <div class="row">
+                     <div class="posts-block col-lg-9 col-md-8 col-sm-8 col-xs-12">
+                        <article>
+                           <h3 class="title">Descripción de Taller</h3>
+                           <div class="post-content">
+                              <div class="img-content">
+                                {% image self.photo width-345 %}
+                              </div>
+
+                               <table class="table table-bordered table-striped">
+                                   <thead>
+                                        <tr>
+                                            <th>
+                                                Atributo
+                                            </th>
+                                            <th>
+                                                Valor
+                                            </th>
+                                        </tr>
+                                   </thead>
+                                   <tbody>
+                                        <tr>
+                                            <td>
+                                               <b> Dictado por </b>
+                                            </td>
+                                            <td>
+                                                {{ self.team }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                               <b> Hora </b>
+                                            </td>
+                                            <td>
+                                                {{ self.time }}
+                                            </td>
+                                        </tr>
+                                    <tr>
+                                            <td>
+                                               <b> Fecha </b>
+                                            </td>
+                                            <td>
+                                                {{ self.date }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                               <b> Sala </b>
+                                            </td>
+                                            <td>
+                                                {{ self.room }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                               <b> Cupos </b>
+                                            </td>
+                                            <td>
+                                                {{ self.number }}
+                                            </td>
+                                        </tr>
+                                   </tbody>
+                               </table>
+
+                               <p>
+                                 {{ self.body|richtext }}
+                              </p>
+                           </div>
+                        </article>
+                     </div>
+                     <!-- Left Section End -->
+                     <!-- Skill Section Start -->
+                     <div class="choice col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h3 class="title">Inscritos en el Taller</h3>
+                        <ul class="check-list why">
+                            {% for x in self.persons.all %}
+                           <li> {{ x.name }} </li>
+                            {% empty %}
+                                <div class="alert alert-info">
+                                	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                	<strong>Ups!</strong> Todavía no tenemos inscritos, que estás esperando?
+                                </div>
+                            {% endfor %}
+                        </ul>
+                     </div>
+                     <!-- Skill Section Start -->
+                  </div>
+               </div>
+            </div>
+            <div class="divider"></div>
+{% endblock %}
