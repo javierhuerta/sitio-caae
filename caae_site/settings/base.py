@@ -85,6 +85,11 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+MEDIA_ROOT = os.path.join(ROOT_PATH, 'media')
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(ROOT_PATH, 'static')
+STATIC_URL = '/static/'
+
 COMPRESS_ENABLED = True
 
 # Static files (CSS, JavaScript, Images)
@@ -102,8 +107,8 @@ STATICFILES_FINDERS = (
 # http://django-compressor.readthedocs.org/en/latest/settings/
 
 COMPRESS_PRECOMPILERS = (
-     ('text/x-scss', 'sass --scss {infile} {outfile}'),
- )
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
 
 
 # Template configuration

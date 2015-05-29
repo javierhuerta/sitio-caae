@@ -11,8 +11,4 @@ DATABASES = {
     }
 }
 
-STATIC_ROOT = os.path.join(ROOT_PATH, 'static')
-STATIC_URL = '/static/'
-
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
