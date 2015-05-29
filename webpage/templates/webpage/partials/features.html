@@ -1,3 +1,4 @@
+{% load wagtailimages_tags %}
 <div class="features bottom-pad">
     <div class="container">
         <div class="row">
@@ -12,6 +13,9 @@
                                         <div class="cn-content">
                                             <h4>{{ taller.name }}</h4>
                                             <p>{{ taller.body }}</p>
+                                            {% if taller.photo %}
+                                             {% image taller.photo width-100 %}
+                                            {% endif %}
                                             <a href="{{ taller.url }}">Ver más <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
                                             <div class="clearfix"></div>
                                         </div>
