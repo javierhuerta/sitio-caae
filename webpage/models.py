@@ -39,7 +39,7 @@ class HomePage(Page):
     def get_context(self, request):
         programs = Program.objects.order_by('?')[:3]
         images = PictureGallery.objects.all()
-        talleres = TallerPage.objects.all()
+        talleres = TallerPage.objects.all()[:9]
 
         # Update template context
         context = super(HomePage, self).get_context(request)
