@@ -44,9 +44,10 @@ DATABASES = {
 
 ALLOWED_HOSTS = ['caae.unach.cl']
 
-MEDIA_ROOT = '/var/djangoprojects/sitio_caae_env/sitio_caae/media/'
+MEDIA_ROOT = os.path.join(ROOT_PATH, 'media')
 MEDIA_URL = '/media/'
-STATIC_ROOT = '/var/djangoprojects/sitio_caae_env/sitio_caae/static/'
+STATIC_ROOT = os.path.join(ROOT_PATH, 'static')
+STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     "/var/djangoprojects/sitio_caae_env/sitio_caae_env/templates",
     )
