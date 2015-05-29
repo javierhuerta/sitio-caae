@@ -8,12 +8,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
-import os
 from os.path import abspath, dirname, join
 from django.conf import global_settings
 
 # Absolute filesystem path to the Django project directory:
-ROOT_PATH = os.path.join(os.path.dirname(__file__), '..')
+PROJECT_ROOT = dirname(dirname(dirname(abspath(__file__))))
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -86,12 +86,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-MEDIA_ROOT = os.path.join(ROOT_PATH, 'media')
-MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(ROOT_PATH, 'static')
-STATIC_URL = '/static/'
 
-COMPRESS_ENABLED = True
+STATIC_ROOT = join(PROJECT_ROOT, 'static')
+STATIC_URL = '/static/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
@@ -103,6 +100,8 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+MEDIA_ROOT = join(PROJECT_ROOT, 'media')
+MEDIA_URL = '/media/'
 
 # Django compressor settings
 # http://django-compressor.readthedocs.org/en/latest/settings/

@@ -42,6 +42,8 @@ DATABASES = {
     }
 }
 
+COMPRESS_OFFLINE = True
+
 ALLOWED_HOSTS = ['caae.unach.cl']
 
 
