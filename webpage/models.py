@@ -336,7 +336,7 @@ class MenuItem(LinkFields):
     @property
     def url(self):
         if self.link_external:
-            return self.link
+            return self.link_external
         elif self.link_page:
             return self.link_page.url
         elif self.link_document:
