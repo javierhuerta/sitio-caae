@@ -1,164 +1,217 @@
 {% load staticfiles %}
 {% load wagtailcore_tags webpage_tags %}
+{% load wagtailimages_tags %}
+
 {% get_site_root as site_root %}
 <!DOCTYPE html>
 <!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
-   <head>
-      <meta charset="utf-8">
-      <title>{% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %}</title>
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- Mobile Metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- Google Fonts -->
-      <link href='{% static 'webpage/css/fonts_1.css' %}' rel='stylesheet' type='text/css'>
-      <link href='{% static 'webpage/css/fonts_2.css' %}' rel='stylesheet' type='text/css'>
-      <!-- Library CSS -->
-      <link rel="stylesheet" href="{% static 'webpage/css/bootstrap.css' %}">
-      <link rel="stylesheet" href="{% static 'webpage/css/bootstrap-theme.css' %}">
-      <link rel="stylesheet" href="{% static 'webpage/css/fonts/font-awesome/css/font-awesome.css' %}">
-      <link rel="stylesheet" href="{% static 'webpage/css/animations.css' %}" media="screen">
-      <link rel="stylesheet" href="{% static 'webpage/css/superfish.css' %}" media="screen">
-      <link rel="stylesheet" href="{% static 'webpage/css/team-member.css' %}" media="screen">
-      <link rel="stylesheet" href="{% static 'webpage/css/revolution-slider/css/settings.css' %}" media="screen">
-      <link rel="stylesheet" href="{% static 'webpage/css/prettyPhoto.css' %}" media="screen">
-      <!-- Theme CSS -->
-      <link rel="stylesheet" href="{% static 'webpage/css/style.css' %}">
-      <link rel="stylesheet" href="{% static 'webpage/css/global.css' %}">
-      <!-- Skin -->
-      <link rel="stylesheet" href="{% static 'webpage/css/colors/orange.css' %}" class="colors">
-      <!-- Responsive CSS -->
-      <link rel="stylesheet" href="{% static 'webpage/css/theme-responsive.css' %}">
-      
-      <!-- Favicons -->
-      <link rel="shortcut icon" href="img/ico/favicon.ico">
-      <link rel="apple-touch-icon" href="img/ico/apple-touch-icon.png">
-      <link rel="apple-touch-icon" sizes="72x72" href="img/ico/apple-touch-icon-72.png">
-      <link rel="apple-touch-icon" sizes="114x114" href="img/ico/apple-touch-icon-114.png">
-      <link rel="apple-touch-icon" sizes="144x144" href="img/ico/apple-touch-icon-144.png">
-      <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-      <!--[if lt IE 9]>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}{% block title_suffix %}{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link href='{% static 'webpage/css/fonts_1.css' %}' rel='stylesheet' type='text/css'>
+    <link href='{% static 'webpage/css/fonts_2.css' %}' rel='stylesheet' type='text/css'>
+    <!-- Library CSS -->
+    <link rel="stylesheet" href="{% static 'webpage/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'webpage/css/bootstrap-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'webpage/css/fonts/font-awesome/css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'webpage/css/animations.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'webpage/css/superfish.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'webpage/css/team-member.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'webpage/css/revolution-slider/css/settings.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'webpage/css/prettyPhoto.css' %}" media="screen">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{% static 'webpage/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'webpage/css/global.css' %}">
+    <!-- Skin -->
+    <link rel="stylesheet" href="{% static 'webpage/css/colors/orange.css' %}" class="colors">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'webpage/css/theme-responsive.css' %}">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="img/ico/favicon.ico">
+    <link rel="apple-touch-icon" href="img/ico/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/ico/apple-touch-icon-72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/ico/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/ico/apple-touch-icon-144.png">
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
       <script src="{% static 'webpage/js/respond.min.js' %}"></script>
       <![endif]-->
-      <!--[if IE]>
+    <!--[if IE]>
       <link rel="stylesheet" href="{% static 'webpage/css/ie.css' %}">
       <![endif]-->
-   </head>
-   <body {% block body_class %} class="home" {% endblock %} >
-      <div class="page-mask">
-            <div class="page-loader">
-                <div class="spinner"></div>
-                Cargando...
-            </div>
-      </div>
-      <div class="wrap">
-         <!-- Header Start -->
-         <header id="header">
-            <!-- Header Top Bar Start -->
-            <div class="top-bar">
-               <div class="slidedown collapse">
-                  <div class="container">
-                     <div class="phone-email pull-left">
+</head>
+<body {% block body_class %} class="home" {% endblock %} >
+<div class="page-mask">
+    <div class="page-loader">
+        <div class="spinner"></div>
+        Cargando...
+    </div>
+</div>
+<div class="wrap">
+    <!-- Header Start -->
+    <header id="header">
+        <!-- Header Top Bar Start -->
+        <div class="top-bar">
+            <div class="slidedown collapse">
+                <div class="container">
+                    <div class="phone-email pull-left">
                         <a><i class="fa fa-phone"></i> Llamanos : {{ site_root.phone }}</a>
                         <a href="{{ site_root.email }}"><i class="fa fa-envelope"></i> Email : {{ site_root.email }}</a>
-                     </div>
-                     <div class="pull-right">
+                    </div>
+                    <div class="pull-right">
                         <ul class="social pull-left">
-                           <li class="facebook"><a href="{{ site_root.facebook }}"><i class="fa fa-facebook"></i></a></li>
-                           <li class="twitter"><a href="{{ site_root.twiter }}"><i class="fa fa-twitter"></i></a></li>
-                           <li class="dribbble"><a href="{{ site_root.instagram }}"><i class="fa fa-instagram"></i></a></li>
-                           <li class="rss"><a href="#"><i class="fa fa-rss"></i></a></li>
+                            <li class="facebook"><a href="{{ site_root.facebook }}"><i class="fa fa-facebook"></i></a></li>
+                            <li class="twitter"><a href="{{ site_root.twiter }}"><i class="fa fa-twitter"></i></a></li>
+                            <li class="dribbble"><a href="{{ site_root.instagram }}"><i class="fa fa-instagram"></i></a></li>
+                            <li class="rss"><a href="#"><i class="fa fa-rss"></i></a></li>
                         </ul>
                         {% block search_box %}
                             {% include 'webpage/partials/search_box.html' %}
                         {% endblock %}
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-            <!-- Header Top Bar End -->
-            <!-- Main Header Start -->
-            {% navbar_menu %}
-            <!-- Main Header End -->
-         </header>
-         <!-- Header End --> 
-         <!-- Content Start -->
-         <div id="main">
-             {% block content %}
-         <!-- Slider Start-->
-        {% include 'webpage/partials/slider.html' %}
-         <!-- Slider End-->
-         <!-- Slogan Start-->
+        </div>
+        <!-- Header Top Bar End -->
+        <!-- Main Header Start -->
+        {% navbar_menu %}
+        <!-- Main Header End -->
+    </header>
+    <!-- Header End -->
+    <!-- Content Start -->
+    <div id="main">
+        {% block content %}
+            <!-- Slider Start-->
+            {% include 'webpage/partials/slider.html' %}
+            <!-- Slider End-->
             <!-- Slogan Start-->
-          {% include 'webpage/partials/slogan.html' %}
+            <!-- Slogan Start-->
+            {% include 'webpage/partials/slogan.html' %}
             <!-- Slogan End-->
-                 <!-- Main Content start-->
-           {% include 'webpage/partials/main_content.html' %}
+            <!-- Main Content start-->
+            {% include 'webpage/partials/main_content.html' %}
             <!-- Main Content end-->
-             <!-- Recent works start-->
-           {% include 'webpage/partials/recent_work.html' %}
+            <!-- Recent works start-->
+            {% include 'webpage/partials/recent_work.html' %}
             <!-- Recent work end-->
-                 <!-- Features start -->
-           {% include 'webpage/partials/features.html' %}
-            <!-- Features End -->
+
+            <div class="features bottom-pad">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h2  class="title">Nuestros Talleres </h2>
+                            <div class="row">
+                                <div class="circular-nav">
+                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 animate_afl">
+                                        <div id="cn-tabs">
+                                            {% for taller in talleres %}
+                                                <div class="service service-{{ forloop.counter }}">
+                                                    <div class="cn-content">
+                                                        <div class="row">
+                                                            <div class="col-md-8 col-lg-8 col-xs-8">
+                                                                <h4>{{ taller.name }}</h4>
+                                                                <p>{{ taller.body }}</p>
+                                                                <a href="{{ taller.url }}">Ver más <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+                                                            </div>
+                                                            <div class="col-md-4 col-lg-4 col-xs-4">
+                                                                {% if taller.photo %}
+                                                                    {% image taller.photo max-320-200%}
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1 animate_afr">
+                                        <div class="cn-wrapper">
+                                            <ul>
+                                                {% for t in talleres %}
+                                                    {% if forloop.first %}
+                                                        <li class="circle-{{ forloop.counter }} circle"><a class="active" href="#"> T{{ forloop.counter }}</a></li>
+                                                    {% else %}
+                                                        <li class="circle-{{ forloop.counter }} circle"><a href="#"> T{{ forloop.counter }} </a></li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             {% comment %}
+                <!-- Product Content Start-->
+                {% include 'webpage/partials/product_content.html' %}
+                <!-- Product Content end-->
 
-            <!-- Product Content Start-->
-           {% include 'webpage/partials/product_content.html' %}
-            <!-- Product Content end-->
+                <!-- Latest Posts start -->
+                {% include 'webpage/partials/latest_posts.html' %}
+                <!-- Latest Posts End -->
+                <!-- Our Clients Start-->
+                {% include 'webpage/partials/our_clients.html' %}
+                <!-- Our Clients End -->
+            {% endcomment %}
+        {% endblock %}
+    </div>
+    <!-- Content End -->
+    <!-- Footer Start -->
+    <footer id="footer">
+        <!-- Footer Top Start -->
+        {% include 'webpage/partials/footer_top.html' %}
+        <!-- Footer Top End -->
+        <!-- Footer Bottom Start -->
+        {% include 'webpage/partials/footer_bottom.html' %}
+        <!-- Footer Bottom End -->
+    </footer>
+    <!-- Scroll To Top -->
+    <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
+</div>
+<!-- Wrap End -->
 
-            <!-- Latest Posts start -->
-           {% include 'webpage/partials/latest_posts.html' %}
-            <!-- Latest Posts End -->
-            <!-- Our Clients Start-->
-            {% include 'webpage/partials/our_clients.html' %}
-            <!-- Our Clients End -->
-             {% endcomment %}
-             {% endblock %}
-         </div>
-         <!-- Content End -->
-         <!-- Footer Start -->
-         <footer id="footer">
-            <!-- Footer Top Start -->
-            {% include 'webpage/partials/footer_top.html' %}
-            <!-- Footer Top End --> 
-            <!-- Footer Bottom Start -->
-           {% include 'webpage/partials/footer_bottom.html' %}
-            <!-- Footer Bottom End -->
-         </footer>
-         <!-- Scroll To Top -->
-         <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
-      </div>
-      <!-- Wrap End -->
-      
-      <!-- The Scripts -->
-      <script src="{% static 'webpage/js/jquery.min.js' %}"></script>
-      <script src="{% static 'webpage/js/jquery-migrate-1.2.1.min.js' %}"></script>
-      <script src="{% static 'webpage/js/jquery-ui.js' %}"></script>
-      <script src="{% static 'webpage/js/bootstrap.js' %}"></script>
-      <script src="{% static 'webpage/js/jquery.parallax.js' %}"></script>
-      <script src="{% static 'webpage/js/jquery.wait.js' %}"></script>
-      <script src="{% static 'webpage/js/modernizr-2.6.2.min.js' %}"></script>
-      <script src="{% static 'webpage/js/modernizr.custom.js' %}"></script>
-      <script src="{% static 'webpage/js/revolution-slider/js/jquery.themepunch.tools.min.js' %}"></script>
-      <script src="{% static 'webpage/js/revolution-slider/js/jquery.themepunch.revolution.min.js' %}"></script>
-      <script src="{% static 'webpage/js/jquery.nivo.slider.pack.js' %}"></script>
-      <script src="{% static 'webpage/js/jquery.prettyPhoto.js' %}"></script>
-      <script src="{% static 'webpage/js/superfish.js' %}"></script>
-      <script src="{% static 'webpage/js/tweetMachine.js' %}"></script>
-      <script src="{% static 'webpage/js/tytabs.js' %}"></script>
-      <script src="{% static 'webpage/js/jquery.gmap.min.js' %}"></script>
-      <script src="{% static 'webpage/js/circularnav.js' %}"></script>
-      <script src="{% static 'webpage/js/jquery.sticky.js' %}"></script>
-      <script src="{% static 'webpage/js/jflickrfeed.js' %}"></script>
-      <script src="{% static 'webpage/js/imagesloaded.pkgd.min.js' %}"></script>
-      <script src="{% static 'webpage/js/waypoints.min.js' %}"></script>
-      {% block extra_js %}
-      {% endblock %}
-      <script src="{% static 'webpage/js/custom.js' %}"></script>
-   </body>
+<!-- The Scripts -->
+<script src="{% static 'webpage/js/jquery.min.js' %}"></script>
+<script src="{% static 'webpage/js/jquery-migrate-1.2.1.min.js' %}"></script>
+<script src="{% static 'webpage/js/jquery-ui.js' %}"></script>
+<script src="{% static 'webpage/js/bootstrap.js' %}"></script>
+<script src="{% static 'webpage/js/jquery.parallax.js' %}"></script>
+<script src="{% static 'webpage/js/jquery.wait.js' %}"></script>
+<script src="{% static 'webpage/js/modernizr-2.6.2.min.js' %}"></script>
+<script src="{% static 'webpage/js/modernizr.custom.js' %}"></script>
+<script src="{% static 'webpage/js/revolution-slider/js/jquery.themepunch.tools.min.js' %}"></script>
+<script src="{% static 'webpage/js/revolution-slider/js/jquery.themepunch.revolution.min.js' %}"></script>
+<script src="{% static 'webpage/js/jquery.nivo.slider.pack.js' %}"></script>
+<script src="{% static 'webpage/js/jquery.prettyPhoto.js' %}"></script>
+<script src="{% static 'webpage/js/superfish.js' %}"></script>
+<script src="{% static 'webpage/js/tweetMachine.js' %}"></script>
+<script src="{% static 'webpage/js/tytabs.js' %}"></script>
+<script src="{% static 'webpage/js/jquery.gmap.min.js' %}"></script>
+<script src="{% static 'webpage/js/circularnav.js' %}"></script>
+<script src="{% static 'webpage/js/jquery.sticky.js' %}"></script>
+<script src="{% static 'webpage/js/jflickrfeed.js' %}"></script>
+<script src="{% static 'webpage/js/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'webpage/js/waypoints.min.js' %}"></script>
+{% block extra_js %}
+{% endblock %}
+<script src="{% static 'webpage/js/custom.js' %}"></script>
+</body>
 </html>
