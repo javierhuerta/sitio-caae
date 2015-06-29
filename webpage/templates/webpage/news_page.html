@@ -1,0 +1,147 @@
+{% extends 'webpage/index.html' %}
+{% load staticfiles %}
+{% load wagtailimages_tags %}
+{% load bootstrap_pagination %}
+
+{% block body_class %}
+    class="blog blog-small"
+{% endblock %}
+
+{% block content %}
+    <div id="main">
+        <!-- Title, Breadcrumb Start-->
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                        <h2 class="title">{{ self.title }}</h2>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                        <div class="breadcrumbs pull-right">
+                            <ul>
+                                <li>Tú estás aquí:</li>
+                                <li><a href="/">Inicio</a></li>
+                                <li>Noticias</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Title, Breadcrumb End-->
+        <!-- Main Content start-->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="posts-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                        {% for x in news %}
+                            {% if forloop.counter > 1 %}
+                                <div class="blog-divider"></div>
+                            {% endif %}
+                            <article class="post hentry">
+                                <div class="post-image">
+                                    {% image x.new.photo original as tmp_photo %}
+                                    <a href="{{ tmp_photo.url }}" data-rel="prettyPhoto">
+                                        <span class="img-hover"></span>
+                                        <span class="fullscreen"><i class="fa fa-search"></i></span>
+                                        {% image x.new.photo max-320x200 %}
+                                    </a>
+                                </div>
+                                <div class="post-content-wrap">
+                                    <header class="post-header">
+                                        <div class="post-date">
+                                            <a class="date" href="#"><strong>{{ x.new.created_at|date:"d" }}</strong><i>{{ x.new.created_at|date:"b"|upper }}</i></a>
+                                        </div>
+                                        <h3 class="content-title">{{ x.new.title }}</h3>
+                                        <div class="blog-entry-meta">
+                                            <div class="blog-entry-meta-author">
+                                                <i class="fa fa-user"></i>
+                                                <a href="#" class="blog-entry-meta-author">{{ x.new.author.get_full_name }}</a>
+                                            </div>
+                                            <div class="blog-entry-meta-tags">
+                                                <i class="fa fa-tags"></i>
+                                                {% for tag in tmp_photo.tags %}
+                                                    <a href="#">{{tag}}</a>,
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </header>
+                                    <div class="post-content">
+                                        <p>
+                                            {{ x.new.description|safe }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </article>
+                        {% endfor %}
+                        <div class="blog-divider"></div>
+                        <div class="pagination-centered">
+                            {% bootstrap_paginate news range=6 show_first_last="true" %}
+
+                        </div>
+                    </div>
+                    <div class="sidebar col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                        <!-- Search Widget Start -->
+                        <form method="get">
+                            <div class="widget search-form">
+                                <div class="input-group">
+                                    <input name="filter" type="text" value="Buscar..." onfocus="if(this.value=='Buscar...')this.value='';" onblur="if(this.value=='')this.value='Buscar...';" class="search-input form-control">
+                              <span class="input-group-btn">
+                              <button type="submit" class="subscribe-btn btn"><i class="fa fa-search"></i></button>
+                              </span>
+
+                                </div>
+                                <!-- /input-group -->
+                                {% if request.get_full_path != request.path %}
+                                        <a href="{{ request.path }}"> Quitar filtro de busqueda</a>
+                                    {% endif %}
+                            </div>
+                        </form>
+                        <!-- Search Widget End -->
+                        <!-- Tab Start -->
+                        <div class="widget tabs">
+                            <div id="horizontal-tabs">
+                                <ul class="tabs">
+                                    <li id="tab1" class="current">Recientes</li>
+                                </ul>
+                                <div class="contents">
+                                    <div class="tabscontent" id="content1" style="display: block;">
+                                        <ul class="posts">
+                                            {% for x in news|slice:":3" %}
+                                                <li>
+                                                    {% image x.new.photo original as tmp_photo %}
+                                                    <a href="{{ tmp_photo.url }}">{% image x.new.photo max-320x200 %}</a>
+                                                    <p><a href="#">{{ x.new.title }}</a></p>
+                                                    <span class="color">{{ x.new.created_at|date:"d F o" }}</span>
+                                                </li>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tab End -->
+                        <!-- Category Widget Start -->
+                        {% comment %}
+                            <div class="widget category">
+                                <h3 class="title">Categorias</h3>
+                                <ul class="category-list slide">
+                                    <li><a href="#">Web Design</a></li>
+                                    <li><a href="#">Graphic Design</a></li>
+                                    <li><a href="#">Illustration</a></li>
+                                    <li><a href="#">Logo Design</a></li>
+                                    <li><a href="#">Wordpress Themes</a></li>
+                                </ul>
+                            </div>
+                        {% endcomment %}
+                        <!-- Category Widget End -->
+                    </div>
+                    <!-- Sidebar End -->
+                </div>
+            </div>
+        </div>
+        <!-- Main Content end-->
+    </div>
+{% endblock %}

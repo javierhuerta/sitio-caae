@@ -1,103 +1,70 @@
- <div class="bottom-pad">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 animate_afl d1">
-                        <h3 class="title">Recent Works</h3>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-lg-12 col-md-12 col-xs-12">
-                        <div class="row portfolio-pad">
-                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 item animate_afc d2">
-                              <div class="portfolio-item">
-                                 <a href="img/portfolio/portfolio-1.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
-                                    <span class="portfolio-item-hover"></span>
-                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-1.jpg" alt=" "/>
-                                 </a>
-                                 <div class="portfolio-item-title">
-                                    <a href="single-project.html">Insta Genius</a>
-                                       <p>
-                                          Design / Development
-                                       </p>
-                                 </div>
-                                 <div class="clearfix"></div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 item animate_afc d3">
-                               <div class="portfolio-item">
-                                  <a href="img/portfolio/portfolio-2.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
-                                  <span class="portfolio-item-hover"></span><span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-2.jpg" alt=" "/>
-                                  </a>
-                                  <div class="portfolio-item-title">
-                                     <a href="single-project.html">YA Sound</a>
-                                     <p>
-                                        Sound / Audio
-                                     </p>
-                                  </div>
-                                  <div class="clearfix"></div>
-                               </div>
-                           </div>
-                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 item animate_afc d4">
-                               <div class="portfolio-item">
-                                  <a href="img/portfolio/portfolio-3.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
-                                  <span class="portfolio-item-hover"></span><span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-3.jpg" alt=" "/>
-                                  </a>
-                                  <div class="portfolio-item-title">
-                                     <a href="single-project.html">Nike Shoe</a>
-                                     <p>
-                                        Apareal / Shoe
-                                     </p>
-                                  </div>
-                                  <div class="clearfix"></div>
-                               </div>
-                           </div>
+{% load wagtailimages_tags %}
+<div class="recentworks bottom-pad">
+    <div class="bg-overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 animate_afl d1">
+                    <div class="portfolio-desc">
+                        <h3 class="title">Últimas Novedades</h3>
+                        <p> {{ site_root.news_description|default:""|safe }}</p>
+                        <div class="carousel-controls">
+                            <a class="prev" href="#portfolio-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                            <a class="next" href="#portfolio-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="row">
-                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 item animate_afc d5">
-                               <div class="portfolio-item">
-                                  <a href="img/portfolio/portfolio-4.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
-                                  <span class="portfolio-item-hover"></span><span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-4.jpg" alt=" "/>
-                                  </a>
-                                  <div class="portfolio-item-title">
-                                     <a href="single-project.html">Camera Icon</a>
-                                     <p>
-                                        Icon / Device
-                                     </p>
-                                  </div>
-                                  <div class="clearfix"></div>
-                               </div>
-                           </div>
-                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 item animate_afc d6">
-                               <div class="portfolio-item">
-                                  <a href="img/portfolio/portfolio-5.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
-                                  <span class="portfolio-item-hover"></span><span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-5.jpg" alt=" "/>
-                                  </a>
-                                  <div class="portfolio-item-title">
-                                     <a href="single-project.html">Penguin</a>
-                                     <p>
-                                        Animal / Nature
-                                     </p>
-                                  </div>
-                                  <div class="clearfix"></div>
-                               </div>
-                           </div>
-                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 item animate_afc d7">
-                               <div class="portfolio-item">
-                                  <a href="img/portfolio/portfolio-6.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
-                                  <span class="portfolio-item-hover"></span><span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-6.jpg" alt=" "/>
-                                  </a>
-                                  <div class="portfolio-item-title">
-                                     <a href="single-project.html">Sound Box</a>
-                                     <p>
-                                        Audio / Sound
-                                     </p>
-                                  </div>
-                                  <div class="clearfix"></div>
-                               </div>
-                           </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9 col-xs-12">
+                    <div class="row">
+                        <div id="portfolio-carousel" class="portfolio-carousel carousel slide">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    {% for n in news_one %}
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 item animate_afc d{{ forloop.counter|add:"1" }}">
+                                            <div class="portfolio-item">
+                                                {% image n.photo original as tmp_photo %}
+                                                <a href="{{ tmp_photo.url }}" class="portfolio-item-link" data-rel="prettyPhoto" >
+                                                    <span class="portfolio-item-hover"></span>
+                                                    <span class="fullscreen"><i class="fa fa-search"></i></span> {% image n.photo max-320x200 %}
+                                                </a>
+                                                <div class="portfolio-item-title">
+                                                    <a href="/noticias/?filter={{ n.title }}">{{ n.title }}</a>
+                                                    <p>
+                                                        {{ n.short_description|safe }}
+                                                    </p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="item">
+                                    {% for n in news_two %}
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 item">
+                                            <div class="portfolio-item">
+                                                {% image n.photo original as tmp_photo %}
+                                                <a href="{{ tmp_photo.url }}" class="portfolio-item-link" data-rel="prettyPhoto" >
+                                                    <span class="portfolio-item-hover"></span>
+                                                    <span class="fullscreen"><i class="fa fa-search"></i></span> {% image n.photo max-320x200 %}
+                                                </a>
+                                                <div class="portfolio-item-title">
+                                                    <a href="/noticias/?filter={{ n.title }}">{{ n.title }}</a>
+                                                    <p>
+                                                        {{ n.short_description|safe }}
+                                                    </p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
-                           <div class="clearfix"></div>
-                     </div>
-                  </div>
-               </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+</div>

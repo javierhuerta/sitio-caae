@@ -47,7 +47,7 @@
       <link rel="stylesheet" href="{% static 'webpage/css/ie.css' %}">
       <![endif]-->
    </head>
-   <body class="home">
+   <body {% block body_class %} class="home" {% endblock %} >
       <div class="page-mask">
             <div class="page-loader">
                 <div class="spinner"></div>
@@ -99,6 +99,10 @@
            {% include 'webpage/partials/main_content.html' %}
             <!-- Main Content end-->
 
+             <!-- Recent works start-->
+           {% include 'webpage/partials/recent_work.html' %}
+            <!-- Recent work end-->
+
                  <!-- Features start -->
            {% include 'webpage/partials/features.html' %}
             <!-- Features End -->
@@ -109,9 +113,6 @@
            {% include 'webpage/partials/product_content.html' %}
             <!-- Product Content end-->
 
-            <!-- Recent works start-->
-           {% include 'webpage/partials/recent_work.html' %}
-            <!-- Recent work end-->
             <!-- Latest Posts start -->
            {% include 'webpage/partials/latest_posts.html' %}
             <!-- Latest Posts End -->

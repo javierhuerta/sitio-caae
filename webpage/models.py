@@ -1,3 +1,5 @@
+from django.contrib.auth.models import User
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db import models
 
 from wagtail.wagtailcore.models import Page, Orderable
@@ -29,6 +31,7 @@ class HomePage(Page):
         related_name='gallery_+',
         help_text='Choose the gallery page'
     )
+    news_description = RichTextField(null=True, blank=True)
     phone = models.CharField(max_length=255)
     email = models.EmailField()
     address = models.CharField(max_length=255)
@@ -39,13 +42,18 @@ class HomePage(Page):
     def get_context(self, request):
         programs = Program.objects.order_by('?')[:3]
         images = PictureGallery.objects.all()
+        slides = Slide.objects.order_by('pk')
         talleres = TallerPage.objects.all()[:9]
+        news = New.objects.order_by('-created_at')[:6]
 
         # Update template context
         context = super(HomePage, self).get_context(request)
         context['programs'] = programs
         context['images'] = images
+        context['slides'] = slides
         context['talleres'] = talleres
+        context['news_one'] = news[:3]
+        context['news_two'] = news[3:6]
         return context
 
     @property
@@ -386,3 +394,102 @@ Menu.panels = [
 ]
 #############################################################################################################
 
+####SLIDER######
+@register_snippet
+class Slide(models.Model):
+    name = models.CharField(max_length=255)
+    description = RichTextField(null=True, blank=True)
+    order = models.PositiveIntegerField(default=1)
+    photo = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    panels = [
+        FieldPanel('name'),
+        FieldPanel('description'),
+        FieldPanel('order'),
+        ImageChooserPanel('photo'),
+        ]
+
+    def __unicode__(self):
+        return u"%s" % self.name
+
+##NEWS#######
+
+@register_snippet
+class New(models.Model):
+    title = models.CharField(max_length=255)
+    author = models.ForeignKey(User)
+    description = RichTextField()
+    short_description = RichTextField(null=True, blank=True)
+    photo = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+
+    panels = [
+        FieldPanel('title'),
+        FieldPanel('author'),
+        FieldPanel('description'),
+        FieldPanel('short_description'),
+        ImageChooserPanel('photo'),
+        ]
+
+    def __unicode__(self):
+        return u"%s" % self.title
+
+class NewList(Orderable, models.Model):
+    page = ParentalKey('webpage.NewsPage', related_name='new_list')
+    new = models.ForeignKey('webpage.New', related_name='+')
+
+    class Meta:
+        verbose_name = "New"
+        verbose_name_plural = "News"
+
+    panels = [
+        SnippetChooserPanel('new', New),
+        ]
+
+    def __unicode__(self):
+        return u"%s -> %s" % (self.page.title, self.new)
+
+class NewsPage(Page):
+    pass
+
+    def get_context(self, request):
+        news_list = self.new_list.order_by('-new__created_at')
+        filter = request.GET.get('filter', None)
+        if filter:
+            news_list = news_list.filter(new__title__icontains=filter)
+
+        paginator = Paginator(news_list, 4) # Show 25 contacts per page
+
+        page = request.GET.get('page')
+        try:
+            news = paginator.page(page)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            news = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            news = paginator.page(paginator.num_pages)
+
+        # Update template context
+        context = super(NewsPage, self).get_context(request)
+        context['news'] = news
+        return context
+
+NewsPage.content_panels = [
+    FieldPanel('title', classname="Title"),
+    InlinePanel(NewsPage, 'new_list', label="News")
+]

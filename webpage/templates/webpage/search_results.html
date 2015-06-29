@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<h2>Resultados de Busqueda{% if request.GET.q %} for {{ request.GET.q }}{% endif %}</h2>
+<h2>Resultados de Busqueda {% if request.GET.q %} para {{ request.GET.q }}{% endif %}</h2>
   <ul>
     {% for result in search_results %}
       <li>

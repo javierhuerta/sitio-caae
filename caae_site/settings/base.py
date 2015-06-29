@@ -54,7 +54,7 @@ INSTALLED_APPS = (
     'wagtail.wagtailforms',
 
     'webpage',
-
+    'bootstrap_pagination',
 )
 
 MIDDLEWARE_CLASSES = (
