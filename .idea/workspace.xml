@@ -1,33 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dbe551ff-61c7-408e-a494-ae3d1e2ec91e" name="Default" comment="changes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpage/static/webpage/img/slider/Item4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpage/static/webpage/img/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpage/migrations/0031_slide.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpage/migrations/0032_slide_order.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpage/migrations/0033_auto_20150629_1910.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpage/migrations/0034_homepage_news_description.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpage/static/webpage/css/bootstrap-image-gallery.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpage/static/webpage/js/bootstrap-image-gallery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpage/static/webpage/css/bootstrap-image-gallery.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpage/static/webpage/js/bootstrap-image-gallery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpage/static/webpage/css/demo.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpage/static/webpage/js/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fabfile.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpage/templates/webpage/news_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpage/templates/webpage/about_page.html" afterPath="$PROJECT_DIR$/webpage/templates/webpage/about_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/templates/base.html" afterPath="$PROJECT_DIR$/core/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/caae_site/settings/base.py" afterPath="$PROJECT_DIR$/caae_site/settings/base.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpage/templates/webpage/partials/features.html" afterPath="$PROJECT_DIR$/webpage/templates/webpage/partials/features.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpage/templates/webpage/gallery_page.html" afterPath="$PROJECT_DIR$/webpage/templates/webpage/gallery_page.html" />
+    <list default="true" id="dbe551ff-61c7-408e-a494-ae3d1e2ec91e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpage/static/webpage/img/slider/Item4.png" afterPath="$PROJECT_DIR$/webpage/static/webpage/img/slider/Item4.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fabfile.py" afterPath="$PROJECT_DIR$/fabfile.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpage/templates/webpage/index.html" afterPath="$PROJECT_DIR$/webpage/templates/webpage/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpage/models.py" afterPath="$PROJECT_DIR$/webpage/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpage/templates/webpage/partials/recent_work.html" afterPath="$PROJECT_DIR$/webpage/templates/webpage/partials/recent_work.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpage/templates/webpage/search_results.html" afterPath="$PROJECT_DIR$/webpage/templates/webpage/search_results.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpage/templates/webpage/partials/slider.html" afterPath="$PROJECT_DIR$/webpage/templates/webpage/partials/slider.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpage/templates/webpage/partials/slogan.html" afterPath="$PROJECT_DIR$/webpage/templates/webpage/partials/slogan.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="caae_site.iws" />
@@ -74,13 +51,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="news_page.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="news_page.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpage/templates/webpage/news_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.2777777" vertical-offset="1084" max-vertical-offset="2280">
-              <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+            <state vertical-scroll-proportion="-16.708334" vertical-offset="1084" max-vertical-offset="2280">
+              <caret line="99" column="31" selection-start-line="99" selection-start-column="31" selection-end-line="99" selection-end-column="31" />
               <folding>
                 <element signature="e#5847#5870#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fabfile.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fabfile.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="37" max-vertical-offset="645">
+              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,21 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="latest_posts.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpage/templates/webpage/partials/latest_posts.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="900">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="features.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="features.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webpage/templates/webpage/partials/features.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="915">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="6.6666665" vertical-offset="0" max-vertical-offset="915">
+              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -129,8 +108,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpage/templates/webpage/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-44.208332" vertical-offset="1204" max-vertical-offset="2565">
-              <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+            <state vertical-scroll-proportion="-8.208333" vertical-offset="1363" max-vertical-offset="2535">
+              <caret line="104" column="44" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -201,18 +180,18 @@
         <option value="$PROJECT_DIR$/webpage/templates/webpage/contact_page.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/webpage/templates/webpage/search_results.html" />
-        <option value="$PROJECT_DIR$/fabfile.py" />
         <option value="$PROJECT_DIR$/webpage/templates/webpage/partials/slider.html" />
         <option value="$PROJECT_DIR$/webpage/templates/webpage/about_page.html" />
         <option value="$PROJECT_DIR$/core/templates/base.html" />
         <option value="$PROJECT_DIR$/webpage/templates/webpage/gallery_page.html" />
         <option value="$PROJECT_DIR$/caae_site/settings/base.py" />
-        <option value="$PROJECT_DIR$/webpage/templates/webpage/index.html" />
         <option value="$PROJECT_DIR$/webpage/templates/webpage/partials/recent_work.html" />
         <option value="$PROJECT_DIR$/webpage/templates/webpage/partials/features.html" />
         <option value="$PROJECT_DIR$/webpage/templates/webpage/partials/slogan.html" />
         <option value="$PROJECT_DIR$/webpage/models.py" />
         <option value="$PROJECT_DIR$/webpage/templates/webpage/news_page.html" />
+        <option value="$PROJECT_DIR$/fabfile.py" />
+        <option value="$PROJECT_DIR$/webpage/templates/webpage/index.html" />
       </list>
     </option>
   </component>
@@ -899,7 +878,19 @@
       <option name="project" value="LOCAL" />
       <updated>1434465139103</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Cambios varios, añadidos modulo de noticias">
+      <created>1435613774365</created>
+      <option name="number" value="00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1435613774365</updated>
+    </task>
+    <task id="LOCAL-00045" summary="actualizados requerimientos">
+      <created>1435613797670</created>
+      <option name="number" value="00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1435613797670</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -926,14 +917,15 @@
     <frame x="-1" y="27" width="1368" height="747" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.8665595" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.86612904" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2266881" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15916398" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5048387" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25377643" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22507553" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -941,7 +933,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993174" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1003,7 +994,9 @@
     <MESSAGE value="Images" />
     <MESSAGE value="changes" />
     <MESSAGE value="fix link to menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix link to menu" />
+    <MESSAGE value="Cambios varios, añadidos modulo de noticias" />
+    <MESSAGE value="actualizados requerimientos" />
+    <option name="LAST_COMMIT_MESSAGE" value="actualizados requerimientos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1206,16 +1199,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fabfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#24#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpage/templates/webpage/partials/slider.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.875" vertical-offset="495" max-vertical-offset="2310">
@@ -1368,26 +1351,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpage/templates/webpage/partials/features.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="915">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpage/templates/webpage/partials/main_content.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-18.75" vertical-offset="0" max-vertical-offset="540">
           <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpage/templates/webpage/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-44.208332" vertical-offset="1204" max-vertical-offset="2565">
-          <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1412,11 +1379,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/webpage/templates/webpage/news_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.2777777" vertical-offset="1084" max-vertical-offset="2280">
-          <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+        <state vertical-scroll-proportion="-16.708334" vertical-offset="1084" max-vertical-offset="2280">
+          <caret line="99" column="31" selection-start-line="99" selection-start-column="31" selection-end-line="99" selection-end-column="31" />
           <folding>
             <element signature="e#5847#5870#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fabfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="37" max-vertical-offset="645">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpage/templates/webpage/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.208333" vertical-offset="1363" max-vertical-offset="2535">
+          <caret line="104" column="44" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpage/templates/webpage/partials/features.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.6666665" vertical-offset="0" max-vertical-offset="915">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -15,7 +15,7 @@ def virtualenv():
             yield
 
 def deploy():
-    local("git push")
+    local("git push production")
     with virtualenv():
         run("git pull")
         run("pip install -r requirements.txt --quiet")
