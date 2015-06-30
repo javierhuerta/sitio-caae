@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load wagtailimages_tags %}
 <div class="fullwidthbanner-container">
     <div class="fullwidthbanner rslider">
         <ul>
@@ -144,6 +145,12 @@
                     </div>
                 </div>
             </li>
+            {% for x in slides %}
+            <li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on">
+                {% image x.photo original as imagen %}
+                <img src="{{ imagen.url }}"  alt="{{ imagen.title }}" data-lazyload="{{ imagen.url }}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+            </li>
+            {% endfor %}
         </ul>
     </div>
 </div>
