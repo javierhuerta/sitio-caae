@@ -1,0 +1,78 @@
+{% extends 'webpage/index.html' %}
+{% load staticfiles %}
+{% load wagtailimages_tags %}
+{% load bootstrap_pagination %}
+
+{% block content %}
+    <!-- Title, Breadcrumb Start-->
+    <div class="breadcrumb-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                    <h2 class="title">Programas de Apoyo al Estudiante</h2>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                    <div class="breadcrumbs pull-right">
+                        <ul>
+                            <li>Tú estás aquí:</li>
+                            <li><a href="/">Inicio</a></li>
+                            <li>Programas de Apoyo al Estudiante</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Title, Breadcrumb End-->
+    <!-- Main Content start-->
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="sidebar col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                    <!-- Left nav Widget Start -->
+                    <div class="widget category">
+                        <h3 class="title">Mis Programas</h3>
+                        <ul class="category-list slide" role="tablist">
+                            {% for p in programs %}
+                                <li role="presentation" {% if forloop.first %}class="active"{% endif %}><a href="#program_{{ p.id }}" aria-controls="program_{{ p.id }}" role="tab" data-toggle="tab">{{ p.name }}</a></li>
+                                {% empty %}
+                                <li> <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    No se han definido programas de apoyo al estudiante.
+                                </div>  </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- Left nav Widget End -->
+                </div>
+                <!-- Sidebar End -->
+                <div class="posts-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                    <div class="tab-content">
+                        {% for x in programs %}
+                        <article class="post hentry tab-pane {% if forloop.first %}active{% endif %}" role="tabpanel" id="program_{{ x.id }}">
+                        {% comment %}
+                            <div class="post-image">
+                            <a href="img/blog/blog-post1.jpg" data-rel="prettyPhoto">
+                                <span class="img-hover"></span>
+                                <span class="fullscreen"><i class="fa fa-search"></i></span>
+                                <img src="img/blog/blog-post1.jpg" alt="">
+                            </a>
+                        </div>
+                        {% endcomment %}
+                        <div class="post-content">
+                            <div class="page-header">
+                                <h2> {{ x.name }} </h2>
+                            </div>
+                            <p>
+                                {{ x.description|safe }}
+                              </p>
+                        </div>
+                    </article>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Left Section End -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

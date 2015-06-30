@@ -23,6 +23,14 @@ class HomePage(Page):
         related_name='about_+',
         help_text='Choose the about page'
     )
+    programs_page = models.ForeignKey(
+        'wagtailcore.Page',
+        null=True,
+        on_delete=models.SET_NULL,
+        blank=True,
+        related_name='about_+',
+        help_text='Choose the programs page'
+    )
     gallery_page = models.ForeignKey(
         'wagtailcore.Page',
         null=True,
@@ -64,6 +72,7 @@ HomePage.content_panels = [
     FieldPanel('title', classname="Title"),
     FieldPanel('about_text', classname="About Text"),
     FieldPanel('about_page', classname="About Page"),
+    FieldPanel('programs_page', classname="Programs Page"),
     FieldPanel('gallery_page', classname="Gallery Page"),
     FieldPanel('phone', classname="Phone"),
     FieldPanel('address', classname="Address"),
@@ -492,4 +501,19 @@ class NewsPage(Page):
 NewsPage.content_panels = [
     FieldPanel('title', classname="Title"),
     InlinePanel(NewsPage, 'new_list', label="News")
+]
+
+####PROGRAMS PAGE####
+
+class ProgramsPage(Page):
+    pass
+
+    def get_context(self, request):
+        programs = Program.objects.all()
+        context = super(ProgramsPage, self).get_context(request)
+        context['programs'] = programs
+        return context
+
+ProgramsPage.content_panels = [
+    FieldPanel('title', classname="Title"),
 ]
