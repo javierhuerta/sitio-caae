@@ -167,10 +167,12 @@ TallerPage.content_panels = [
 
 class DefaultPage(Page):
     body = RichTextField()
+    body_text = models.TextField(null=True, blank=True)
 
 DefaultPage.content_panels = [
     FieldPanel('title', classname="Title"),
     FieldPanel('body', classname="Content"),
+    FieldPanel('body_text', classname="Body")
 ]
 
 @register_snippet

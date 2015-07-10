@@ -28,7 +28,11 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
-                        {{ self.body|richtext }}
+                        {% if self.body_text %}
+                            {{ self.body_text|safe }}
+                        {% else %}
+                            {{ self.body|richtext }}
+                        {% endif %}
                     </div>
                 </div>
             </div>
