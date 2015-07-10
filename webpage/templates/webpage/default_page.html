@@ -29,7 +29,9 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
                         {% if self.body_text %}
-                            {{ self.body_text|safe }}
+                           <div align="center">
+                            {{ self.body_text|safe|escape }}
+                            </div>
                         {% else %}
                             {{ self.body|richtext }}
                         {% endif %}
