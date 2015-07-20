@@ -52,7 +52,6 @@ INSTALLED_APPS = (
     'wagtail.wagtailsearch',
     'wagtail.wagtailredirects',
     'wagtail.wagtailforms',
-
     'webpage',
     'bootstrap_pagination',
 )
