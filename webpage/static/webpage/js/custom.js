@@ -669,8 +669,8 @@ jQuery(document).ready(function () {
          overviewMapControl: true
      },
 		markers: [{
-			latitude: -36.621725,
-			longitude: -72.048675,
+			latitude: -36.636657,
+			longitude: -71.995274,
 			html: "<h4>Centro de Apoyo al Estudiante</h4>",
 			popup: true
 		}]
