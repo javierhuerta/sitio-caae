@@ -49,7 +49,7 @@ class HomePage(Page):
 
     def get_context(self, request):
         programs = Program.objects.order_by('?')[:3]
-        images = PictureGallery.objects.all()
+        images = PictureAlbum.objects.all()
         slides = Slide.objects.order_by('pk')
         talleres = TallerPage.objects.all()[:9]
         news = New.objects.order_by('-created_at')[:6]
@@ -66,7 +66,7 @@ class HomePage(Page):
 
     @property
     def images_gallery(self):
-        return PictureGallery.objects.order_by('?')[:6]
+        return PictureAlbum.objects.order_by('?')[:6]
 
 HomePage.content_panels = [
     FieldPanel('title', classname="Title"),
@@ -195,11 +195,12 @@ class Program(models.Model):
         return u"%s" % self.name
 
 
+### GALLERY #####
+
 @register_snippet
-class PictureGallery(models.Model):
+class PictureAlbum(models.Model):
     title = models.CharField(max_length=255)
     description = RichTextField(null=True, blank=True)
-    program = models.ForeignKey(Program)
     photo = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -212,27 +213,70 @@ class PictureGallery(models.Model):
     panels = [
         FieldPanel('title'),
         FieldPanel('description'),
-        FieldPanel('program'),
         ImageChooserPanel('photo'),
         ]
 
     def __unicode__(self):
         return u"%s" % self.title
 
-class GalleryPagePictureList(Orderable, models.Model):
-    page = ParentalKey('webpage.GalleryPage', related_name='picture_list')
-    picture = models.ForeignKey('webpage.PictureGallery', related_name='+')
+class AlbumPagePictureList(Orderable, models.Model):
+    page = ParentalKey('webpage.AlbumPage', related_name='picture_list')
+    picture = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     class Meta:
         verbose_name = "Picture"
         verbose_name_plural = "Pictures"
 
     panels = [
-        SnippetChooserPanel('picture', PictureGallery),
+        ImageChooserPanel('picture'),
         ]
 
     def __unicode__(self):
         return u"%s -> %s" % (self.page.title, self.picture)
+
+
+class AlbumPage(Page):
+    pass
+
+    def get_context(self, request):
+        context = super(AlbumPage, self).get_context(request)
+        picture_list = self.picture_list.all()
+        list_temp = []
+        for x in picture_list:
+            temp = x.picture.tags.all()
+            for y in temp:
+                if not y in list_temp:
+                    list_temp.append(y)
+        context['tags_'] = list_temp
+        return context
+
+AlbumPage.content_panels = [
+    FieldPanel('title', classname="Title"),
+    InlinePanel(AlbumPage, 'picture_list', label="Pictures")
+]
+
+
+class GalleryPageAlbumList(Orderable, models.Model):
+    page = ParentalKey('webpage.GalleryPage', related_name='album_list')
+    album = models.ForeignKey(AlbumPage, related_name='+')
+
+    class Meta:
+        verbose_name = "Album"
+        verbose_name_plural = "Albums"
+
+    panels = [
+        FieldPanel('album', AlbumPage),
+        ]
+
+    def __unicode__(self):
+        return u"%s -> %s" % (self.page.title, self.album)
+
 
 class GalleryPage(Page):
     pass
@@ -248,7 +292,7 @@ class GalleryPage(Page):
 
 GalleryPage.content_panels = [
     FieldPanel('title', classname="Title"),
-    InlinePanel(GalleryPage,'picture_list', label="Pictures")
+    InlinePanel(GalleryPage, 'album_list', label="Albums")
 ]
 
 @register_snippet
