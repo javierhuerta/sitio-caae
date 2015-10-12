@@ -35,12 +35,12 @@
                         <h3 class="title">{{ self.sub_title }}</h3>
                         <div class="post-content">
                             <div class="img-content">
-                               {% image self.photo width-345 %}
+                                {% image self.photo width-345 %}
                             </div>
                             {% if self.body_personalize %}
-                            {{ self.body_personalize|safe }}
+                                {{ self.body_personalize|safe }}
                             {% else %}
-                            {{ self.body|richtext }}
+                                {{ self.body|richtext }}
                             {% endif %}
                         </div>
                     </article>
@@ -63,6 +63,12 @@
                     </div>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">TALLERES FORMATIVOS</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">PSICOLOGÍA</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">ASISTENCIA PASTORAL</div>
                     </div>
                 </div>
                 <!-- Skill Section Start -->
