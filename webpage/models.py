@@ -49,7 +49,7 @@ class HomePage(Page):
 
     def get_context(self, request):
         programs = Program.objects.order_by('?')[:3]
-        images = PictureAlbum.objects.all()
+        images = AlbumPagePictureList.objects.all()
         slides = Slide.objects.order_by('pk')
         talleres = TallerPage.objects.all()[:9]
         news = New.objects.order_by('-created_at')[:6]
@@ -66,7 +66,7 @@ class HomePage(Page):
 
     @property
     def images_gallery(self):
-        return PictureAlbum.objects.order_by('?')[:6]
+        return AlbumPagePictureList.objects.order_by('?')[:6]
 
 HomePage.content_panels = [
     FieldPanel('title', classname="Title"),

@@ -20,7 +20,7 @@
                         <ul class="contact-us">
                            <li>
                               <i class="fa fa-map-marker"></i>
-                              <p> 
+                              <p>
                                  <strong class="contact-pad">Dirección:</strong> {{ site_root.address|safe }}
                               </p>
                            </li>
@@ -40,7 +40,7 @@
                             <tbody>
                                 <tr>
                                 {% for image in site_root.images_gallery %}
-                                    <td> {% image image.photo width-75 class="img-thumbnail" %}</td>
+                                    <td> {% image image.picture width-75 class="img-thumbnail" %}</td>
                                     {% if forloop.last %}
                                     </tr>
                                      {% else %}
