@@ -372,6 +372,11 @@ class LinkFields(models.Model):
         null=True,
         help_text='Set an external link if you want the link to point somewhere outside the CMS.'
     )
+    link_external_title = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True
+    )
     link_page = models.ForeignKey(
         'wagtailcore.Page',
         null=True,
@@ -407,7 +412,7 @@ class MenuItem(LinkFields):
 
     def __unicode__(self):
         if self.link_external:
-            title = self.link_external
+            title = self.link_external_title
         elif self.link_page:
             title = self.link_page.title
         elif self.link_document:
