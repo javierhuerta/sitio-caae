@@ -412,7 +412,10 @@ class MenuItem(LinkFields):
 
     def __unicode__(self):
         if self.link_external:
-            title = self.link_external_title
+            if self.link_external_title:
+                title = self.link_external_title
+            else:
+                title = self.link_external
         elif self.link_page:
             title = self.link_page.title
         elif self.link_document:
