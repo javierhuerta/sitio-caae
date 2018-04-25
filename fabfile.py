@@ -3,7 +3,7 @@ from contextlib import contextmanager as _contextmanager
 from shutil import copyfile
 from datetime import datetime
 
-env.hosts = ['root@172.16.9']
+env.hosts = ['root@172.16.0.9']
 env.virtualenv = '/var/djangoprojects/sitio_caae_env'
 env.project = env.virtualenv + '/sitio_caae'
 env.activate = "source %s/bin/activate" % (env.virtualenv,)
