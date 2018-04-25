@@ -15,7 +15,7 @@ django-taggit==0.12.3
 django-treebeard==2.0
 ecdsa==0.13
 html5lib==0.999
-libsass==0.8.0
+libsass==0.14.5
 paramiko==1.15.2
 pycrypto==2.6.1
 pytz==2015.2
