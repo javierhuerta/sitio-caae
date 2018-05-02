@@ -1,0 +1,126 @@
+[1mdiff --git a/webpage/templates/webpage/partials/slider.html b/webpage/templates/webpage/partials/slider.html[m
+[1mindex da53f4d..38c76cf 100644[m
+[1m--- a/webpage/templates/webpage/partials/slider.html[m
+[1m+++ b/webpage/templates/webpage/partials/slider.html[m
+[36m@@ -4,6 +4,102 @@[m
+     <div class="fullwidthbanner rslider">[m
+         <ul>[m
+             <!-- THE FIRST SLIDE -->[m
+[32m+[m[32m            <li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on">[m
+[32m+[m[32m                <img src="{% static 'webpage/img/slider/nivo_slider3.jpg' %}"  alt="Pixma" data-lazyload="{% static 'webpage/img/slider/nivo_slider3.jpg' %}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">[m
+[32m+[m[32m                <div class="caption large_text sft"[m
+[32m+[m[32m                     data-x="40"[m
+[32m+[m[32m                     data-y="54"[m
+[32m+[m[32m                     data-speed="300"[m
+[32m+[m[32m                     data-start="800"[m
+[32m+[m[32m                     data-easing="easeOutExpo">Disfruta del Otoño</div>[m
+[32m+[m[32m                <div class="caption medium_text sfl"[m
+[32m+[m[32m                     data-x="49"[m
+[32m+[m[32m                     data-y="92"[m
+[32m+[m[32m                     data-speed="300"[m
+[32m+[m[32m                     data-start="1100"[m
+[32m+[m[32m                     data-easing="easeOutExpo">Junto a</div>[m
+[32m+[m[32m                <div class="caption large_text sfr"[m
+[32m+[m[32m                     data-x="118"[m
+[32m+[m[32m                     data-y="88"[m
+[32m+[m[32m                     data-speed="300"[m
+[32m+[m[32m                     data-start="1100"[m
+[32m+[m[32m                     data-easing="easeOutExpo"><span>Nosotros</span></div>[m
+[32m+[m[32m                <div class="caption"[m
+[32m+[m[32m                     data-easing="easeOutExpo"[m
+[32m+[m[32m                     data-start="1400"[m
+[32m+[m[32m                     data-speed="1050"[m
+[32m+[m[32m                     data-y="180"[m
+[32m+[m[32m                     data-x="150">[m
+[32m+[m[32m                    <h5> <span style="background:#FA6900"> Ven y agenda tu hora en: </span> </h5>[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                <div class="caption list_slide lfb tp-caption start"[m
+[32m+[m[32m                     data-easing="easeOutExpo"[m
+[32m+[m[32m                     data-start="1800"[m
+[32m+[m[32m                     data-speed="1200"[m
+[32m+[m[32m                     data-y="220"[m
+[32m+[m[32m                     data-x="150">[m
+[32m+[m[32m                    <div class="list-slide">[m
+[32m+[m[32m                        <i class="fa fa-volume-up slide-icon"></i>[m
+[32m+[m[32m                        <h5> Fonoaudiología </h5>[m
+[32m+[m[32m                    </div>[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                <div class="caption list_slide lfb tp-caption start"[m
+[32m+[m[32m                     data-easing="easeOutExpo"[m
+[32m+[m[32m                     data-start="2200"[m
+[32m+[m[32m                     data-speed="1350"[m
+[32m+[m[32m                     data-y="260"[m
+[32m+[m[32m                     data-x="150">[m
+[32m+[m[32m                    <div class="list-slide">[m
+[32m+[m[32m                        <i class="fa fa-check slide-icon"></i>[m
+[32m+[m[32m                        <h5> Psicopedagogía </h5>[m
+[32m+[m[32m                    </div>[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                <div class="caption list_slide lfb tp-caption start"[m
+[32m+[m[32m                     data-easing="easeOutExpo"[m
+[32m+[m[32m                     data-start="2600"[m
+[32m+[m[32m                     data-speed="1350"[m
+[32m+[m[32m                     data-y="300"[m
+[32m+[m[32m                     data-x="150">[m
+[32m+[m[32m                    <div class="list-slide">[m
+[32m+[m[32m                        <i class="fa fa-group slide-icon"></i>[m
+[32m+[m[32m                        <h5> Trabajo Social </h5>[m
+[32m+[m[32m                    </div>[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                <div class="caption list_slide lfb tp-caption start"[m
+[32m+[m[32m                     data-easing="easeOutExpo"[m
+[32m+[m[32m                     data-start="3000"[m
+[32m+[m[32m                     data-speed="1350"[m
+[32m+[m[32m                     data-y="340"[m
+[32m+[m[32m                     data-x="150">[m
+[32m+[m[32m                    <div class="list-slide">[m
+[32m+[m[32m                        <i class="fa fa-th slide-icon"></i>[m
+[32m+[m[32m                        <h5> Talleres Formativos </h5>[m
+[32m+[m[32m                    </div>[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                <div class="caption list_slide lfb tp-caption start"[m
+[32m+[m[32m                     data-easing="easeOutExpo"[m
+[32m+[m[32m                     data-start="3400"[m
+[32m+[m[32m                     data-speed="1350"[m
+[32m+[m[32m                     data-y="380"[m
+[32m+[m[32m                     data-x="150">[m
+[32m+[m[32m                    <div class="list-slide">[m
+[32m+[m[32m                        <i class="fa fa-user-md slide-icon"></i>[m
+[32m+[m[32m                        <h5> Psicología </h5>[m
+[32m+[m[32m                    </div>[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m                <div class="caption list_slide lfb tp-caption start"[m
+[32m+[m[32m                     data-easing="easeOutExpo"[m
+[32m+[m[32m                     data-start="3800"[m
+[32m+[m[32m                     data-speed="1350"[m
+[32m+[m[32m                     data-y="420"[m
+[32m+[m[32m                     data-x="150">[m
+[32m+[m[32m                    <div class="list-slide">[m
+[32m+[m[32m                        <i class="fa fa-hand-o-right slide-icon"></i>[m
+[32m+[m[32m                        <h5> Asistencia pastoral </h5>[m
+[32m+[m[32m                    </div>[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m            </li>[m
+[32m+[m[32m            <!-- THE SECOND SLIDE -->[m
+             <li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on">[m
+                 <img src="{% static 'webpage/img/slider/Item4.png' %}"  alt="item 1" data-lazyload="{% static 'webpage/img/slider/Item4.png' %}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">[m
+ [m
+[36m@@ -72,7 +168,7 @@[m
+                 </div>[m
+             </li>[m
+             <!-- THE FIRST SLIDE -->[m
+[31m-            <li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on">[m
+[32m+[m[32m            <!--<li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on">[m
+                 <img src="{% static 'webpage/img/slider/Item3.png' %}"  alt="Pixma" data-lazyload="{% static 'webpage/img/slider/Item3.png' %}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">[m
+                 <div class="caption large_text sft"[m
+                      data-x="660"[m
+[36m@@ -167,7 +263,8 @@[m
+                     </div>[m
+                 </div>[m
+             </li>[m
+[31m-            {% for x in slides %}[m
+[32m+[m[32m        -->[m
+[32m+[m[32m             {% for x in slides %}[m
+             <li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on">[m
+                 {% image x.photo original as imagen %}[m
+                 <img src="{{ imagen.url }}"  alt="{{ imagen.title }}" data-lazyload="{{ imagen.url }}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">[m

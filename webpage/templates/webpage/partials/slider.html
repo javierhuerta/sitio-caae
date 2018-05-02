@@ -5,6 +5,102 @@
         <ul>
             <!-- THE FIRST SLIDE -->
             <li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on">
+                <img src="{% static 'webpage/img/slider/nivo_slider3.jpg' %}"  alt="Pixma" data-lazyload="{% static 'webpage/img/slider/nivo_slider3.jpg' %}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                <div class="caption large_text sft"
+                     data-x="40"
+                     data-y="54"
+                     data-speed="300"
+                     data-start="800"
+                     data-easing="easeOutExpo">Comparte del Otoño</div>
+                <div class="caption medium_text sfl"
+                     data-x="49"
+                     data-y="92"
+                     data-speed="300"
+                     data-start="1100"
+                     data-easing="easeOutExpo">Junto a</div>
+                <div class="caption large_text sfr"
+                     data-x="118"
+                     data-y="88"
+                     data-speed="300"
+                     data-start="1100"
+                     data-easing="easeOutExpo"><span>Nosotros</span></div>
+                <div class="caption"
+                     data-easing="easeOutExpo"
+                     data-start="1400"
+                     data-speed="1050"
+                     data-y="180"
+                     data-x="150">
+                    <h5> <span style="background:#FA6900"> Ven y agenda tu hora en: </span> </h5>
+                </div>
+                <div class="caption list_slide lfb tp-caption start"
+                     data-easing="easeOutExpo"
+                     data-start="1800"
+                     data-speed="1200"
+                     data-y="220"
+                     data-x="150">
+                    <div class="list-slide">
+                        <i class="fa fa-volume-up slide-icon"></i>
+                        <h5> Fonoaudiología </h5>
+                    </div>
+                </div>
+                <div class="caption list_slide lfb tp-caption start"
+                     data-easing="easeOutExpo"
+                     data-start="2200"
+                     data-speed="1350"
+                     data-y="260"
+                     data-x="150">
+                    <div class="list-slide">
+                        <i class="fa fa-check slide-icon"></i>
+                        <h5> Psicopedagogía </h5>
+                    </div>
+                </div>
+                <div class="caption list_slide lfb tp-caption start"
+                     data-easing="easeOutExpo"
+                     data-start="2600"
+                     data-speed="1350"
+                     data-y="300"
+                     data-x="150">
+                    <div class="list-slide">
+                        <i class="fa fa-group slide-icon"></i>
+                        <h5> Trabajo Social </h5>
+                    </div>
+                </div>
+                <div class="caption list_slide lfb tp-caption start"
+                     data-easing="easeOutExpo"
+                     data-start="3000"
+                     data-speed="1350"
+                     data-y="340"
+                     data-x="150">
+                    <div class="list-slide">
+                        <i class="fa fa-th slide-icon"></i>
+                        <h5> Talleres Formativos </h5>
+                    </div>
+                </div>
+                <div class="caption list_slide lfb tp-caption start"
+                     data-easing="easeOutExpo"
+                     data-start="3400"
+                     data-speed="1350"
+                     data-y="380"
+                     data-x="150">
+                    <div class="list-slide">
+                        <i class="fa fa-user-md slide-icon"></i>
+                        <h5> Psicología </h5>
+                    </div>
+                </div>
+                <div class="caption list_slide lfb tp-caption start"
+                     data-easing="easeOutExpo"
+                     data-start="3800"
+                     data-speed="1350"
+                     data-y="420"
+                     data-x="150">
+                    <div class="list-slide">
+                        <i class="fa fa-hand-o-right slide-icon"></i>
+                        <h5> Asistencia pastoral </h5>
+                    </div>
+                </div>
+            </li>
+            <!-- THE SECOND SLIDE -->
+            <li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on">
                 <img src="{% static 'webpage/img/slider/Item4.png' %}"  alt="item 1" data-lazyload="{% static 'webpage/img/slider/Item4.png' %}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 
                 <div class="caption modern_big_bluebg h1 lft tp-caption start"
@@ -72,7 +168,7 @@
                 </div>
             </li>
             <!-- THE FIRST SLIDE -->
-            <li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on">
+            <!--<li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on">
                 <img src="{% static 'webpage/img/slider/Item3.png' %}"  alt="Pixma" data-lazyload="{% static 'webpage/img/slider/Item3.png' %}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
                 <div class="caption large_text sft"
                      data-x="660"
@@ -167,7 +263,8 @@
                     </div>
                 </div>
             </li>
-            {% for x in slides %}
+        -->
+             {% for x in slides %}
             <li data-transition="fade" data-slotamount="7" data-masterspeed="500"  data-saveperformance="on">
                 {% image x.photo original as imagen %}
                 <img src="{{ imagen.url }}"  alt="{{ imagen.title }}" data-lazyload="{{ imagen.url }}" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
